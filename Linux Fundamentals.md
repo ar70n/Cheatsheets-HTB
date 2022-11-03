@@ -117,7 +117,7 @@
 
 [↑] / [↓] - Go to the previous/next command in the command history.
 
-###Switch Between Applications
+### Switch Between Applications
 
 [ALT] + [TAB] - Switch between opened applications.
 
