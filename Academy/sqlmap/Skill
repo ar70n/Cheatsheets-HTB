@@ -1,0 +1,14 @@
+POST /action.php HTTP/1.1
+Host: 138.68.166.146:32071
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/json
+Content-Length: 8
+Origin: http://138.68.166.146:32071
+DNT: 1
+Connection: close
+Referer: http://138.68.166.146:32071/shop.html
+
+{"id":1*}

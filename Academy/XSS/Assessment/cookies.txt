@@ -1,0 +1,3 @@
+Victim IP: 10.129.50.121 | Cookie: wordpress_test_cookie=WP Cookie check
+Victim IP: 10.129.50.121 | Cookie:  wp-settings-time-2=1686913690
+Victim IP: 10.129.50.121 | Cookie:  flag=HTB{cr055_5173_5cr1p71n6_n1nj4}

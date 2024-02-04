@@ -1,0 +1,4 @@
+* LIST (\HasNoChildren) "." Notes
+* LIST (\HasNoChildren) "." Meetings
+* LIST (\HasNoChildren \UnMarked) "." Important
+* LIST (\HasNoChildren) "." INBOX

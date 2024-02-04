@@ -1,0 +1,46 @@
+# Nmap 7.94SVN scan initiated Mon Jan 29 17:02:17 2024 as: nmap -Pn -n --disable-arp-ping -p 995,110,143,22,993 -sC -sV -oA enumeration -v 10.129.215.166
+Nmap scan report for 10.129.215.166
+Host is up (0.37s latency).
+
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 3f:4c:8f:10:f1:ae:be:cd:31:24:7c:a1:4e:ab:84:6d (RSA)
+|   256 7b:30:37:67:50:b9:ad:91:c0:8f:f7:02:78:3b:7c:02 (ECDSA)
+|_  256 88:9e:0e:07:fe:ca:d0:5c:60:ab:cf:10:99:cd:6c:a7 (ED25519)
+110/tcp open  pop3     Dovecot pop3d
+|_pop3-capabilities: AUTH-RESP-CODE UIDL RESP-CODES TOP PIPELINING CAPA STLS SASL(PLAIN) USER
+|_ssl-date: TLS randomness does not represent time
+143/tcp open  imap     Dovecot imapd (Ubuntu)
+|_imap-capabilities: LOGIN-REFERRALS Pre-login OK listed AUTH=PLAINA0001 STARTTLS SASL-IR IDLE ENABLE LITERAL+ capabilities have ID post-login IMAP4rev1 more
+|_ssl-date: TLS randomness does not represent time
+993/tcp open  ssl/imap Dovecot imapd (Ubuntu)
+|_imap-capabilities: OK capabilities Pre-login AUTH=PLAINA0001 LOGIN-REFERRALS SASL-IR IDLE ENABLE LITERAL+ listed have ID post-login IMAP4rev1 more
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=NIXHARD
+| Subject Alternative Name: DNS:NIXHARD
+| Issuer: commonName=NIXHARD
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-11-10T01:30:25
+| Not valid after:  2031-11-08T01:30:25
+| MD5:   2b45:ec3c:508f:3cfb:9f6a:750c:63f8:2077
+|_SHA-1: ed43:7d5a:3c46:54ac:9902:8dc4:9d86:6efb:2ae3:357c
+995/tcp open  ssl/pop3 Dovecot pop3d
+| ssl-cert: Subject: commonName=NIXHARD
+| Subject Alternative Name: DNS:NIXHARD
+| Issuer: commonName=NIXHARD
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-11-10T01:30:25
+| Not valid after:  2031-11-08T01:30:25
+| MD5:   2b45:ec3c:508f:3cfb:9f6a:750c:63f8:2077
+|_SHA-1: ed43:7d5a:3c46:54ac:9902:8dc4:9d86:6efb:2ae3:357c
+|_ssl-date: TLS randomness does not represent time
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jan 29 17:03:14 2024 -- 1 IP address (1 host up) scanned in 56.41 seconds

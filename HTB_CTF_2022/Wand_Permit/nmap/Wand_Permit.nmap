@@ -1,0 +1,126 @@
+# Nmap 7.93 scan initiated Sat Dec  3 13:51:20 2022 as: nmap -p- -sV -sC -v -oA Wand_Permit 10.129.229.222
+Nmap scan report for 10.129.229.222
+Host is up (0.035s latency).
+Not shown: 65533 closed tcp ports (conn-refused)
+PORT     STATE SERVICE    VERSION
+80/tcp   open  http       Werkzeug/2.2.2 Python/3.8.10
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 404 NOT FOUND
+|     Server: Werkzeug/2.2.2 Python/3.8.10
+|     Date: Sat, 03 Dec 2022 12:51:57 GMT
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 207
+|     Server: is online :)
+|     X-Powered-By: Magic
+|     Connection: close
+|     <!doctype html>
+|     <html lang=en>
+|     <title>404 Not Found</title>
+|     <h1>Not Found</h1>
+|     <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+|   GetRequest: 
+|     HTTP/1.1 302 FOUND
+|     Server: Werkzeug/2.2.2 Python/3.8.10
+|     Date: Sat, 03 Dec 2022 12:51:51 GMT
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 197
+|     Location: login
+|     Server: is online :)
+|     X-Powered-By: Magic
+|     Connection: close
+|     <!doctype html>
+|     <html lang=en>
+|     <title>Redirecting...</title>
+|     <h1>Redirecting...</h1>
+|     <p>You should be redirected automatically to the target URL: <a href="login">login</a>. If not, click the link.
+|   HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Server: Werkzeug/2.2.2 Python/3.8.10
+|     Date: Sat, 03 Dec 2022 12:51:51 GMT
+|     Content-Type: text/html; charset=utf-8
+|     Allow: GET, HEAD, OPTIONS
+|     Server: is online :)
+|     X-Powered-By: Magic
+|     Content-Length: 0
+|     Connection: close
+|   RTSPRequest: 
+|     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+|     "http://www.w3.org/TR/html4/strict.dtd">
+|     <html>
+|     <head>
+|     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+|     <title>Error response</title>
+|     </head>
+|     <body>
+|     <h1>Error response</h1>
+|     <p>Error code: 400</p>
+|     <p>Message: Bad request version ('RTSP/1.0').</p>
+|     <p>Error code explanation: HTTPStatus.BAD_REQUEST - Bad request syntax or unsupported method.</p>
+|     </body>
+|_    </html>
+| http-title: Wand Permit Authority | Log-in
+|_Requested resource was login
+| http-robots.txt: 1 disallowed entry 
+|_/static/CHANGELOG.txt
+| http-methods: 
+|_  Supported Methods: GET HEAD OPTIONS
+|_http-favicon: Unknown favicon MD5: 9C5075081FAFECFC9C20043D394111DB
+|_http-server-header: Werkzeug/2.2.2 Python/3.8.10
+5432/tcp open  postgresql PostgreSQL DB 9.6.0 or later
+| fingerprint-strings: 
+|   SMBProgNeg: 
+|     SFATAL
+|     VFATAL
+|     C0A000
+|     Munsupported frontend protocol 65363.19778: server supports 3.0 to 3.0
+|     Fpostmaster.c
+|     L2188
+|_    RProcessStartupPacket
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.93%I=7%D=12/3%Time=638B4667%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,1B2,"HTTP/1\.1\x20302\x20FOUND\r\nServer:\x20Werkzeug/2\.2\.2\x2
+SF:0Python/3\.8\.10\r\nDate:\x20Sat,\x2003\x20Dec\x202022\x2012:51:51\x20G
+SF:MT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x
+SF:20197\r\nLocation:\x20login\r\nServer:\x20is\x20online\x20:\)\r\nX-Powe
+SF:red-By:\x20Magic\r\nConnection:\x20close\r\n\r\n<!doctype\x20html>\n<ht
+SF:ml\x20lang=en>\n<title>Redirecting\.\.\.</title>\n<h1>Redirecting\.\.\.
+SF:</h1>\n<p>You\x20should\x20be\x20redirected\x20automatically\x20to\x20t
+SF:he\x20target\x20URL:\x20<a\x20href=\"login\">login</a>\.\x20If\x20not,\
+SF:x20click\x20the\x20link\.\n")%r(HTTPOptions,F2,"HTTP/1\.1\x20200\x20OK\
+SF:r\nServer:\x20Werkzeug/2\.2\.2\x20Python/3\.8\.10\r\nDate:\x20Sat,\x200
+SF:3\x20Dec\x202022\x2012:51:51\x20GMT\r\nContent-Type:\x20text/html;\x20c
+SF:harset=utf-8\r\nAllow:\x20GET,\x20HEAD,\x20OPTIONS\r\nServer:\x20is\x20
+SF:online\x20:\)\r\nX-Powered-By:\x20Magic\r\nContent-Length:\x200\r\nConn
+SF:ection:\x20close\r\n\r\n")%r(RTSPRequest,1F4,"<!DOCTYPE\x20HTML\x20PUBL
+SF:IC\x20\"-//W3C//DTD\x20HTML\x204\.01//EN\"\n\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\"http://www\.w3\.org/TR/html4/strict\.dtd\">\n<html>\n\x20\x20\x2
+SF:0\x20<head>\n\x20\x20\x20\x20\x20\x20\x20\x20<meta\x20http-equiv=\"Cont
+SF:ent-Type\"\x20content=\"text/html;charset=utf-8\">\n\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20<title>Error\x20response</title>\n\x20\x20\x20\x20</head>\
+SF:n\x20\x20\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20r
+SF:esponse</h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20400<
+SF:/p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Bad\x20request\x20v
+SF:ersion\x20\('RTSP/1\.0'\)\.</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Err
+SF:or\x20code\x20explanation:\x20HTTPStatus\.BAD_REQUEST\x20-\x20Bad\x20re
+SF:quest\x20syntax\x20or\x20unsupported\x20method\.</p>\n\x20\x20\x20\x20<
+SF:/body>\n</html>\n")%r(FourOhFourRequest,1AF,"HTTP/1\.1\x20404\x20NOT\x2
+SF:0FOUND\r\nServer:\x20Werkzeug/2\.2\.2\x20Python/3\.8\.10\r\nDate:\x20Sa
+SF:t,\x2003\x20Dec\x202022\x2012:51:57\x20GMT\r\nContent-Type:\x20text/htm
+SF:l;\x20charset=utf-8\r\nContent-Length:\x20207\r\nServer:\x20is\x20onlin
+SF:e\x20:\)\r\nX-Powered-By:\x20Magic\r\nConnection:\x20close\r\n\r\n<!doc
+SF:type\x20html>\n<html\x20lang=en>\n<title>404\x20Not\x20Found</title>\n<
+SF:h1>Not\x20Found</h1>\n<p>The\x20requested\x20URL\x20was\x20not\x20found
+SF:\x20on\x20the\x20server\.\x20If\x20you\x20entered\x20the\x20URL\x20manu
+SF:ally\x20please\x20check\x20your\x20spelling\x20and\x20try\x20again\.</p
+SF:>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5432-TCP:V=7.93%I=7%D=12/3%Time=638B4668%P=x86_64-pc-linux-gnu%r(SM
+SF:BProgNeg,8C,"E\0\0\0\x8bSFATAL\0VFATAL\0C0A000\0Munsupported\x20fronten
+SF:d\x20protocol\x2065363\.19778:\x20server\x20supports\x203\.0\x20to\x203
+SF:\.0\0Fpostmaster\.c\0L2188\0RProcessStartupPacket\0\0");
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Dec  3 13:53:19 2022 -- 1 IP address (1 host up) scanned in 119.35 seconds

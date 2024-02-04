@@ -1,0 +1,16 @@
+POST /case8.php HTTP/1.1
+Host: 209.97.176.174:30686
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 53
+Origin: http://209.97.176.174:30686
+DNT: 1
+Connection: close
+Referer: http://209.97.176.174:30686/case8.php
+Cookie: PHPSESSID=mohfpqsao3pf062fgcg9j0k132
+Upgrade-Insecure-Requests: 1
+
+id=1*&t0ken=EeNzHCbk6MU6jccq7ZF9bQroGysjgsLcDq7iXUsYak

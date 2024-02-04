@@ -1,0 +1,4 @@
+# Nmap 7.93 scan initiated Sun Dec  4 13:53:44 2022 as: nmap -sV -sC -p80,22 -A -oA Precious 10.10.11.189
+Host: 10.10.11.189 (precious.htb)	Status: Up
+Host: 10.10.11.189 (precious.htb)	Ports: 22/open/tcp//ssh//OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)/, 80/open/tcp//http//nginx 1.18.0/
+# Nmap done at Sun Dec  4 13:54:05 2022 -- 1 IP address (1 host up) scanned in 20.67 seconds

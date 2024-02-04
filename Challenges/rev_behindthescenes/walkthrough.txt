@@ -1,0 +1,27 @@
+Sites:
+https://davidguest.uk/htb-reversing-behind-the-scenes/
+https://forum.hackthebox.com/t/official-behind-the-scenes-discussion/253636
+https://visualgdb.com/gdbreference/commands/disassemble
+
+Very useful commands:
+
+
+./behindthescenes <---- to execute the program
+readelf -x .rodata behindthescenes
+strace ./behindthescenes aaa
+ltrace -i -C ./behindthescenes 
+nm -D behindthescenes
+
+r2 -w -A behindthescenes :
+	pd
+	pdf
+
+
+
+
+gdb behindthescenes :
+	info functions
+	break main
+	run 
+	disassemble
+	x/4s 0x201b  

@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Sat Jan 27 20:13:35 2024 as: nmap -Pn -n --disable-arp-ping -p 53 -sV -sC -oA port53 10.129.54.61
+Host: 10.129.54.61 ()	Status: Up
+Host: 10.129.54.61 ()	Ports: 53/open/tcp//domain//ISC BIND 9.16.1 (Ubuntu Linux)/
+# Nmap done at Sat Jan 27 20:13:54 2024 -- 1 IP address (1 host up) scanned in 18.92 seconds

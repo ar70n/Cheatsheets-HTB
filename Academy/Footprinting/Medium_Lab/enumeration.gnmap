@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Mon Jan 29 12:52:32 2024 as: nmap -Pn -n --disable-arp-ping -sC -sV -oA enumeration 10.129.192.189
+Host: 10.129.192.189 ()	Status: Up
+Host: 10.129.192.189 ()	Ports: 111/open/tcp//rpcbind//2-4 (RPC #100000)/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 445/open/tcp//microsoft-ds?///, 2049/open/tcp//nlockmgr//1-4 (RPC #100021)/, 3389/open/tcp//ms-wbt-server//Microsoft Terminal Services/	Ignored State: closed (994)
+# Nmap done at Mon Jan 29 12:54:34 2024 -- 1 IP address (1 host up) scanned in 121.72 seconds

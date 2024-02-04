@@ -1,0 +1,9 @@
+drwxr-xr-x   4 ceil     ceil         4096 Nov 10  2021 .
+drwxr-xr-x   4 ceil     ceil         4096 Nov 10  2021 ..
+-rw-------   1 ceil     ceil          294 Nov 10  2021 .bash_history
+-rw-r--r--   1 ceil     ceil          220 Nov 10  2021 .bash_logout
+-rw-r--r--   1 ceil     ceil         3771 Nov 10  2021 .bashrc
+drwx------   2 ceil     ceil         4096 Nov 10  2021 .cache
+-rw-r--r--   1 ceil     ceil          807 Nov 10  2021 .profile
+drwx------   2 ceil     ceil         4096 Nov 10  2021 .ssh
+-rw-------   1 ceil     ceil          759 Nov 10  2021 .viminfo

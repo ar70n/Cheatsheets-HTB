@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Mon Jan 29 17:02:17 2024 as: nmap -Pn -n -&#45;disable-arp-ping -p 995,110,143,22,993 -sC -sV -oA enumeration -v 10.129.215.166 -->
+<nmaprun scanner="nmap" args="nmap -Pn -n -&#45;disable-arp-ping -p 995,110,143,22,993 -sC -sV -oA enumeration -v 10.129.215.166" start="1706544137" startstr="Mon Jan 29 17:02:17 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="5" services="22,110,143,993,995"/>
+<verbose level="1"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1706544138"/>
+<taskend task="NSE" time="1706544138"/>
+<taskbegin task="NSE" time="1706544138"/>
+<taskend task="NSE" time="1706544138"/>
+<taskbegin task="NSE" time="1706544138"/>
+<taskend task="NSE" time="1706544138"/>
+<taskbegin task="Connect Scan" time="1706544138"/>
+<taskend task="Connect Scan" time="1706544138" extrainfo="5 total ports"/>
+<taskbegin task="Service scan" time="1706544138"/>
+<taskend task="Service scan" time="1706544159" extrainfo="5 services on 1 host"/>
+<taskbegin task="NSE" time="1706544159"/>
+<taskend task="NSE" time="1706544183"/>
+<taskbegin task="NSE" time="1706544183"/>
+<taskend task="NSE" time="1706544194"/>
+<taskbegin task="NSE" time="1706544194"/>
+<taskend task="NSE" time="1706544194"/>
+<host starttime="1706544138" endtime="1706544194"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.129.215.166" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" product="OpenSSH" version="8.2p1 Ubuntu 4ubuntu0.3" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  3072 3f:4c:8f:10:f1:ae:be:cd:31:24:7c:a1:4e:ab:84:6d (RSA)&#xa;  256 7b:30:37:67:50:b9:ad:91:c0:8f:f7:02:78:3b:7c:02 (ECDSA)&#xa;  256 88:9e:0e:07:fe:ca:d0:5c:60:ab:cf:10:99:cd:6c:a7 (ED25519)"><table>
+<elem key="type">ssh-rsa</elem>
+<elem key="bits">3072</elem>
+<elem key="key">AAAAB3NzaC1yc2EAAAADAQABAAABgQDa9RJRoAShv6FzLx23WYUh5z5vpaC1W0jTGGJuVfOVmOiwXu7d+eLRcf51dFwqe2J4OZ7z70w6Lrbm3RyKjNSZmY0ekPqbXyP0P6KqYn4eFdJkYp74zPUEvC/Y5U9gYmvCpoQ8gvqgAImYwhBXAlAmGDptcfRWRJ3KaRG/bbmfg0vsWqwYvDVfxEcCfbO1m7v6a9EiWELRTynHS26+oJbjY7tX5X05XMvj6L53JMWodHVsFf/vD4/qP2Ic0lafSBXuyKOcN5Tnx0DpExUwqj7GPLaM/ljG5LjF8y2yqZ85GeNQsgnsSxIL6dHiWkbUP4RXogUVI/prXLDU8307Wn/LWJQl3hxjJmunJfC5qw4a/JPLd9ydFSwadjYhztQoYIsSp41mr/wEVns8owxcKzBju74T9FptZ4I4UAzZLIWg1RJzpnJ7wpnFSUXFbvOa6V+nzeMesjYvKK1vx+UuNtrUuXPJm3BoYKjRJd2msog1KX4CguQNGZMS6LegiRIGde0=</elem>
+<elem key="fingerprint">3f4c8f10f1aebecd31247ca14eab846d</elem>
+</table>
+<table>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+<elem key="bits">256</elem>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNAdY+PFLa0XBlXCp3lL+mrrQKkU6bxWjDVEsljltzBYtugbDuER3AyIq1igFdgQPn+uKh5RtNQvPvX1Al8pA0Y=</elem>
+<elem key="fingerprint">7b30376750b9ad91c08ff702783b7c02</elem>
+</table>
+<table>
+<elem key="type">ssh-ed25519</elem>
+<elem key="bits">256</elem>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIGKKM5saOYH/Fq3lWY1P4fchdWaH60Ib5/VQk6A00nAP</elem>
+<elem key="fingerprint">889e0e07fecad05c60abcf1099cd6ca7</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="110"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="pop3" product="Dovecot pop3d" method="probed" conf="10"><cpe>cpe:/a:dovecot:dovecot</cpe></service><script id="pop3-capabilities" output="AUTH-RESP-CODE UIDL RESP-CODES TOP PIPELINING CAPA STLS SASL(PLAIN) USER"/><script id="ssl-date" output="TLS randomness does not represent time"></script></port>
+<port protocol="tcp" portid="143"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="imap" product="Dovecot imapd" extrainfo="Ubuntu" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:dovecot:dovecot</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="imap-capabilities" output="LOGIN-REFERRALS Pre-login OK listed AUTH=PLAINA0001 STARTTLS SASL-IR IDLE ENABLE LITERAL+ capabilities have ID post-login IMAP4rev1 more"/><script id="ssl-date" output="TLS randomness does not represent time"></script></port>
+<port protocol="tcp" portid="993"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="imap" product="Dovecot imapd" extrainfo="Ubuntu" ostype="Linux" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:dovecot:dovecot</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="imap-capabilities" output="OK capabilities Pre-login AUTH=PLAINA0001 LOGIN-REFERRALS SASL-IR IDLE ENABLE LITERAL+ listed have ID post-login IMAP4rev1 more"/><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="ssl-cert" output="Subject: commonName=NIXHARD&#xa;Subject Alternative Name: DNS:NIXHARD&#xa;Issuer: commonName=NIXHARD&#xa;Public Key type: rsa&#xa;Public Key bits: 2048&#xa;Signature Algorithm: sha256WithRSAEncryption&#xa;Not valid before: 2021-11-10T01:30:25&#xa;Not valid after:  2031-11-08T01:30:25&#xa;MD5:   2b45:ec3c:508f:3cfb:9f6a:750c:63f8:2077&#xa;SHA-1: ed43:7d5a:3c46:54ac:9902:8dc4:9d86:6efb:2ae3:357c"><table key="subject">
+<elem key="commonName">NIXHARD</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">NIXHARD</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C40690DF907E11A396575B8E0DBE717737D94ACF6ED5D61811A69C94939CBF4843CAB76CE3114FABDAD10751E1E824741905B5B4C9BC61F97D87DD93CD106F675751AD1507D305572B504A4DE55575E5A21B761FAA8F9DE9A7FC1C2FF77CF99836640695616BD01D5AADB00B9D426CA7AD5D4C1C0DFD038E1F1B7FD2BAD2A5BAB63C00A474316E7330FB5F94C73F377FA51FC5143017F643ECCD4B264B8811228712B791F316F761EA59E874D7A7A048816EC54B07924E31A469B21BD3436276B8EDD433A070A0FB8D8A82A16F5AB1B0DA721C71A1085F95C0F2B53DBB9DC2EC44330F3990BC0B47A4A581C0D9A28AFC40CFF402ECC3C4C56216B59B4EAB199F</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:FALSE</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:NIXHARD</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2021-11-10T01:30:25</elem>
+<elem key="notAfter">2031-11-08T01:30:25</elem>
+</table>
+<elem key="md5">2b45ec3c508f3cfb9f6a750c63f82077</elem>
+<elem key="sha1">ed437d5a3c4654ac99028dc49d866efb2ae3357c</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIC0zCCAbugAwIBAgIUC6tYfrtqQqCrhjYv11bUtaKet3EwDQYJKoZIhvcNAQEL&#xa;BQAwEjEQMA4GA1UEAwwHTklYSEFSRDAeFw0yMTExMTAwMTMwMjVaFw0zMTExMDgw&#xa;MTMwMjVaMBIxEDAOBgNVBAMMB05JWEhBUkQwggEiMA0GCSqGSIb3DQEBAQUAA4IB&#xa;DwAwggEKAoIBAQDEBpDfkH4Ro5ZXW44NvnF3N9lKz27V1hgRppyUk5y/SEPKt2zj&#xa;EU+r2tEHUeHoJHQZBbW0ybxh+X2H3ZPNEG9nV1GtFQfTBVcrUEpN5VV15aIbdh+q&#xa;j53pp/wcL/d8+Zg2ZAaVYWvQHVqtsAudQmynrV1MHA39A44fG3/SutKlurY8AKR0&#xa;MW5zMPtflMc/N3+lH8UUMBf2Q+zNSyZLiBEihxK3kfMW92HqWeh016egSIFuxUsH&#xa;kk4xpGmyG9NDYna47dQzoHCg+42KgqFvWrGw2nIccaEIX5XA8rU9u53C7EQzDzmQ&#xa;vAtHpKWBwNmiivxAz/QC7MPExWIWtZtOqxmfAgMBAAGjITAfMAkGA1UdEwQCMAAw&#xa;EgYDVR0RBAswCYIHTklYSEFSRDANBgkqhkiG9w0BAQsFAAOCAQEAG+Dm9pLJgNGC&#xa;X1YmznmtBUekhXMrU67tQl745fFasJQzIrDgVtK27fjAtQRwvIbDruSwTj47E7+O&#xa;XdS7qyjFNBerklWNq4fEAVI7BmkxnTS9542okA/+UmeG70LdKjzFS+LjjOnyWzTh&#xa;YwU8uUjLfnRca74kY0DkVHOIkwZQha0J+BrKSADq/zDjkG0g4v0vzHINOmHx9eiE&#xa;67NoJKJPY5S3RYWxl/4x8Kphx7PNJBPC75gYjlxxDhxdYu9a3daqJUa58/qOm6P8&#xa;w1P9nA6lkg7NopyqepulLAzIcqnTjb/nMD2Pd9b6vgWc3IqSfFreqjzshZ+FjNZo&#xa;zR+tR6z4TQ==&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script></port>
+<port protocol="tcp" portid="995"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="pop3" product="Dovecot pop3d" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:dovecot:dovecot</cpe></service><script id="ssl-cert" output="Subject: commonName=NIXHARD&#xa;Subject Alternative Name: DNS:NIXHARD&#xa;Issuer: commonName=NIXHARD&#xa;Public Key type: rsa&#xa;Public Key bits: 2048&#xa;Signature Algorithm: sha256WithRSAEncryption&#xa;Not valid before: 2021-11-10T01:30:25&#xa;Not valid after:  2031-11-08T01:30:25&#xa;MD5:   2b45:ec3c:508f:3cfb:9f6a:750c:63f8:2077&#xa;SHA-1: ed43:7d5a:3c46:54ac:9902:8dc4:9d86:6efb:2ae3:357c"><table key="subject">
+<elem key="commonName">NIXHARD</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">NIXHARD</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C40690DF907E11A396575B8E0DBE717737D94ACF6ED5D61811A69C94939CBF4843CAB76CE3114FABDAD10751E1E824741905B5B4C9BC61F97D87DD93CD106F675751AD1507D305572B504A4DE55575E5A21B761FAA8F9DE9A7FC1C2FF77CF99836640695616BD01D5AADB00B9D426CA7AD5D4C1C0DFD038E1F1B7FD2BAD2A5BAB63C00A474316E7330FB5F94C73F377FA51FC5143017F643ECCD4B264B8811228712B791F316F761EA59E874D7A7A048816EC54B07924E31A469B21BD3436276B8EDD433A070A0FB8D8A82A16F5AB1B0DA721C71A1085F95C0F2B53DBB9DC2EC44330F3990BC0B47A4A581C0D9A28AFC40CFF402ECC3C4C56216B59B4EAB199F</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:FALSE</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:NIXHARD</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2021-11-10T01:30:25</elem>
+<elem key="notAfter">2031-11-08T01:30:25</elem>
+</table>
+<elem key="md5">2b45ec3c508f3cfb9f6a750c63f82077</elem>
+<elem key="sha1">ed437d5a3c4654ac99028dc49d866efb2ae3357c</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIC0zCCAbugAwIBAgIUC6tYfrtqQqCrhjYv11bUtaKet3EwDQYJKoZIhvcNAQEL&#xa;BQAwEjEQMA4GA1UEAwwHTklYSEFSRDAeFw0yMTExMTAwMTMwMjVaFw0zMTExMDgw&#xa;MTMwMjVaMBIxEDAOBgNVBAMMB05JWEhBUkQwggEiMA0GCSqGSIb3DQEBAQUAA4IB&#xa;DwAwggEKAoIBAQDEBpDfkH4Ro5ZXW44NvnF3N9lKz27V1hgRppyUk5y/SEPKt2zj&#xa;EU+r2tEHUeHoJHQZBbW0ybxh+X2H3ZPNEG9nV1GtFQfTBVcrUEpN5VV15aIbdh+q&#xa;j53pp/wcL/d8+Zg2ZAaVYWvQHVqtsAudQmynrV1MHA39A44fG3/SutKlurY8AKR0&#xa;MW5zMPtflMc/N3+lH8UUMBf2Q+zNSyZLiBEihxK3kfMW92HqWeh016egSIFuxUsH&#xa;kk4xpGmyG9NDYna47dQzoHCg+42KgqFvWrGw2nIccaEIX5XA8rU9u53C7EQzDzmQ&#xa;vAtHpKWBwNmiivxAz/QC7MPExWIWtZtOqxmfAgMBAAGjITAfMAkGA1UdEwQCMAAw&#xa;EgYDVR0RBAswCYIHTklYSEFSRDANBgkqhkiG9w0BAQsFAAOCAQEAG+Dm9pLJgNGC&#xa;X1YmznmtBUekhXMrU67tQl745fFasJQzIrDgVtK27fjAtQRwvIbDruSwTj47E7+O&#xa;XdS7qyjFNBerklWNq4fEAVI7BmkxnTS9542okA/+UmeG70LdKjzFS+LjjOnyWzTh&#xa;YwU8uUjLfnRca74kY0DkVHOIkwZQha0J+BrKSADq/zDjkG0g4v0vzHINOmHx9eiE&#xa;67NoJKJPY5S3RYWxl/4x8Kphx7PNJBPC75gYjlxxDhxdYu9a3daqJUa58/qOm6P8&#xa;w1P9nA6lkg7NopyqepulLAzIcqnTjb/nMD2Pd9b6vgWc3IqSfFreqjzshZ+FjNZo&#xa;zR+tR6z4TQ==&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script></port>
+</ports>
+<times srtt="368422" rttvar="140021" to="928506"/>
+</host>
+<taskbegin task="NSE" time="1706544194"/>
+<taskend task="NSE" time="1706544194"/>
+<taskbegin task="NSE" time="1706544194"/>
+<taskend task="NSE" time="1706544194"/>
+<taskbegin task="NSE" time="1706544194"/>
+<taskend task="NSE" time="1706544194"/>
+<runstats><finished time="1706544194" timestr="Mon Jan 29 17:03:14 2024" summary="Nmap done at Mon Jan 29 17:03:14 2024; 1 IP address (1 host up) scanned in 56.41 seconds" elapsed="56.41" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

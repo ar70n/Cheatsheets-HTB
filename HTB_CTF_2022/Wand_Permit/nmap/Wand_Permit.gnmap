@@ -1,0 +1,5 @@
+# Nmap 7.93 scan initiated Sat Dec  3 13:51:20 2022 as: nmap -p- -sV -sC -v -oA Wand_Permit 10.129.229.222
+# Ports scanned: TCP(65535;1-65535) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.129.229.222 ()	Status: Up
+Host: 10.129.229.222 ()	Ports: 80/open/tcp//http//Werkzeug|2.2.2 Python|3.8.10/, 5432/open/tcp//postgresql//PostgreSQL DB 9.6.0 or later/	Ignored State: closed (65533)
+# Nmap done at Sat Dec  3 13:53:19 2022 -- 1 IP address (1 host up) scanned in 119.35 seconds

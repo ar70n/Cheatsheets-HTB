@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.93 scan initiated Sat Jun 10 12:58:50 2023 as: nmap -p- -&#45;min-rate=10000 -oA nmap/output-all-ports -v 10.10.11.221 -->
+<nmaprun scanner="nmap" args="nmap -p- -&#45;min-rate=10000 -oA nmap/output-all-ports -v 10.10.11.221" start="1686394730" startstr="Sat Jun 10 12:58:50 2023" version="7.93" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="1"/>
+<debugging level="0"/>
+<taskbegin task="Ping Scan" time="1686394730"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.10.11.221" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="Ping Scan" time="1686394731" extrainfo="1 total hosts"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1686394731"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1686394731"/>
+<taskbegin task="SYN Stealth Scan" time="1686394731"/>
+<taskend task="SYN Stealth Scan" time="1686394738" extrainfo="65535 total ports"/>
+<host starttime="1686394731" endtime="1686394738"><status state="up" reason="echo-reply" reason_ttl="63"/>
+<address addr="10.10.11.221" addrtype="ipv4"/>
+<hostnames>
+<hostname name="10.10.11.221" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="65533">
+<extrareasons reason="reset" count="65533" proto="tcp" ports="1-21,23-79,81-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="http" method="table" conf="3"/></port>
+</ports>
+<times srtt="154095" rttvar="61859" to="401531"/>
+</host>
+<runstats><finished time="1686394738" timestr="Sat Jun 10 12:58:58 2023" summary="Nmap done at Sat Jun 10 12:58:58 2023; 1 IP address (1 host up) scanned in 8.00 seconds" elapsed="8.00" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

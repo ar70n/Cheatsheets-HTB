@@ -1,0 +1,37 @@
+# Nmap 7.94 scan initiated Fri Jun 16 14:00:12 2023 as: nmap -p111 --script vuln -sV -Pn -n --disable-arp-ping -oA /home/ar70n/Proyects/Squashed/nmap/output3 10.10.11.191
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Nmap scan report for 10.10.11.191
+Host is up (0.061s latency).
+
+PORT    STATE SERVICE VERSION
+111/tcp open  rpcbind 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|   100000  3,4          111/udp6  rpcbind
+|   100003  3           2049/udp   nfs
+|   100003  3           2049/udp6  nfs
+|   100003  3,4         2049/tcp   nfs
+|   100003  3,4         2049/tcp6  nfs
+|   100005  1,2,3      38279/udp6  mountd
+|   100005  1,2,3      39673/udp   mountd
+|   100005  1,2,3      52385/tcp6  mountd
+|   100005  1,2,3      55427/tcp   mountd
+|   100021  1,3,4      40751/tcp6  nlockmgr
+|   100021  1,3,4      41850/udp6  nlockmgr
+|   100021  1,3,4      42653/tcp   nlockmgr
+|   100021  1,3,4      53393/udp   nlockmgr
+|   100227  3           2049/tcp   nfs_acl
+|   100227  3           2049/tcp6  nfs_acl
+|   100227  3           2049/udp   nfs_acl
+|_  100227  3           2049/udp6  nfs_acl
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jun 16 14:00:54 2023 -- 1 IP address (1 host up) scanned in 42.18 seconds

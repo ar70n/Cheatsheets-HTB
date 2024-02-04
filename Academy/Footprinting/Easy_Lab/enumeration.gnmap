@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Mon Jan 29 12:09:53 2024 as: nmap -Pn -n --disable-arp-ping -p21,22,53,2121 -sC -sV -oA enumeration 10.129.8.200
+Host: 10.129.8.200 ()	Status: Up
+Host: 10.129.8.200 ()	Ports: 21/open/tcp//ftp//ProFTPD/, 22/open/tcp//ssh//OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)/, 53/open/tcp//domain//ISC BIND 9.16.1 (Ubuntu Linux)/, 2121/open/tcp//ftp//ProFTPD/
+# Nmap done at Mon Jan 29 12:11:26 2024 -- 1 IP address (1 host up) scanned in 93.03 seconds
