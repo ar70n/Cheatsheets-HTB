@@ -1,0 +1,2 @@
+administrator:MEGACORP_4dm1n!!
+sql_svc:M3g4c0rp123

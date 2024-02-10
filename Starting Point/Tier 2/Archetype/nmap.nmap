@@ -1,0 +1,55 @@
+nmap -Pn -n --disable-arp-ping  10.129.118.121 -sC -sV      
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-02-10 16:19 CET
+Nmap scan report for 10.129.118.121
+Host is up (0.050s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT     STATE SERVICE      VERSION
+135/tcp  open  msrpc        Microsoft Windows RPC
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds Windows Server 2019 Standard 17763 microsoft-ds
+1433/tcp open  ms-sql-s     Microsoft SQL Server 2017 14.00.1000.00; RTM
+| ms-sql-info: 
+|   10.129.118.121:1433: 
+|     Version: 
+|       name: Microsoft SQL Server 2017 RTM
+|       number: 14.00.1000.00
+|       Product: Microsoft SQL Server 2017
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    TCP port: 1433
+|_ssl-date: 2024-02-10T15:20:44+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2024-02-10T15:13:43
+|_Not valid after:  2054-02-10T15:13:43
+| ms-sql-ntlm-info: 
+|   10.129.118.121:1433: 
+|     Target_Name: ARCHETYPE
+|     NetBIOS_Domain_Name: ARCHETYPE
+|     NetBIOS_Computer_Name: ARCHETYPE
+|     DNS_Domain_Name: Archetype
+|     DNS_Computer_Name: Archetype
+|_    Product_Version: 10.0.17763
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb-os-discovery: 
+|   OS: Windows Server 2019 Standard 17763 (Windows Server 2019 Standard 6.3)
+|   Computer name: Archetype
+|   NetBIOS computer name: ARCHETYPE\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2024-02-10T07:20:34-08:00
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-time: 
+|   date: 2024-02-10T15:20:36
+|_  start_date: N/A
+|_clock-skew: mean: 1h36m00s, deviation: 3h34m40s, median: 0s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 81.80 seconds

