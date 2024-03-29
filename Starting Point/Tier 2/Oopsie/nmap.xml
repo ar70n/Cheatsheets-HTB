@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Sun Mar  3 18:29:58 2024 as: nmap -Pn -n -&#45;disable-arp-ping -p 80 -sC -sV -oA nmap 10.129.95.191 -->
+<nmaprun scanner="nmap" args="nmap -Pn -n -&#45;disable-arp-ping -p 80 -sC -sV -oA nmap 10.129.95.191" start="1709486998" startstr="Sun Mar  3 18:29:58 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="1" services="80"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1709486998" endtime="1709487020"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.129.95.191" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Apache httpd" version="2.4.29" extrainfo="(Ubuntu)" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.29</cpe></service><script id="http-title" output="Welcome"><elem key="title">Welcome</elem>
+</script><script id="http-server-header" output="Apache/2.4.29 (Ubuntu)"><elem>Apache/2.4.29 (Ubuntu)</elem>
+</script></port>
+</ports>
+<times srtt="84838" rttvar="84838" to="424190"/>
+</host>
+<runstats><finished time="1709487020" timestr="Sun Mar  3 18:30:20 2024" summary="Nmap done at Sun Mar  3 18:30:20 2024; 1 IP address (1 host up) scanned in 22.00 seconds" elapsed="22.00" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>
