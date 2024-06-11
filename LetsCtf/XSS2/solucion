@@ -1,6 +1,0 @@
-Al ver la el codigo de respuesta de web al probar donde esta el parametro "name" vemos que esta dentro de una funcion document.write la cual si no me equivoco te permite ejecutat codigo javascript. Al probar distintos payloads de XSS vemos que el servidor senea el input que recibe rechazando palabras que contengan "script", "(", "on"...
-Tras probar muchos payloads the payloadAllTheThings con burpsuite que no tengan estas palabras prohibidas (no creo que fuera la manera correcta) veo que uno de ellos funciona. 
-
-<iframe src="data:text/html,%3c%73%63%72%69%70%74%3e%61%6c%65%72%74%28%27%58%53%53%27%29%3c%2f%73%63%72%69%70%74%3e"></iframe>
-
-Este payload codifica en hexadecimal el codigo: <script>alert('XSS')</script> 
