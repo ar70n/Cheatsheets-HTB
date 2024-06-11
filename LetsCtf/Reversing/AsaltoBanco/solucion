@@ -1,0 +1,28 @@
+Tenemos un archivo binario que nos pide una contraseña que desconocemos. Probamos a ejecutar strings con el fin de que nos muestre algo interesante y efectivamente nos muestra muchas cosas muy interesantes.
+
+Para empezar se puede ver la siguiente flag en texto plano: Congrats, your flag is: LetsCTF{r3v3rs1ng_ch4ll3_ch4ll3ng3_0n3} 
+
+Con esto ya podríamos pensar que tenemos la flag. Pero a mi me gusta encontrar la password que hace que se muestre ese flag por lo que pruebo a correr el prgrama con ltrace y me encuentro con lo siguiente:
+
+
+puts("Enter our password:"Enter our password:
+)                               = 20
+__isoc99_scanf(0x5570e217843c, 0x7ffcdb63fc50, 0, 0x7f5bea5904e0mi_input
+) = 1
+strcmp("null", "mi_input")                                = 1
+puts("You Failed"You Failed
+)                                        = 11
++++ exited (status 0) +++
+
+
+
+Vemos que este comparando las cadenas "null" y "mi_input" por lo que pruebo a ver que pasa si introduzco null como contraseña y veo que aparece otro flag: 
+
+LetsCTF Control Access
+Enter our password:
+null
+You Win
+LetsCTF{LetsCTF_r3v3rs3d_c01N}
+
+
+

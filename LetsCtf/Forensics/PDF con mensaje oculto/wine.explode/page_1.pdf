@@ -1,0 +1,83 @@
+%PDF-1.4
+1 0 obj
+<<
+	/Pages 2 0 R
+	/Type /Catalog
+>>
+endobj
+2 0 obj
+<<
+	/Count 1
+	/Kids [ 4 0 R ]
+	/Type /Pages
+>>
+endobj
+4 0 obj
+<<
+	/ArtBox [ 0 0 595.276 841.89 ]
+	/BleedBox [ 0 0 595.276 841.89 ]
+	/Contents [ 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R ]
+	/CropBox [ 0 0 595.276 841.89 ]
+	/Group 15 0 R
+	/MediaBox [ 0 0 595.276 841.89 ]
+	/Parent 2 0 R
+	/Resources <<
+		/ColorSpace <<
+			/CS0 16 0 R
+			/CS1 17 0 R
+		>>
+		/ExtGState <<
+			/GS0 18 0 R
+			/GS1 19 0 R
+			/GS2 20 0 R
+			/GS3 21 0 R
+			/GS4 22 0 R
+			/GS5 23 0 R
+			/GS6 24 0 R
+			/GS7 25 0 R
+		>>
+		/Font <<
+			/TT0 26 0 R
+			/TT1 27 0 R
+		>>
+		/Pattern <<
+			/P0 28 0 R
+		>>
+		/ProcSet [ /PDF /Text /ImageC ]
+		/Shading <<
+			/Sh0 29 0 R
+		>>
+		/XObject <<
+			/Fm0 30 0 R
+			/Fm1 31 0 R
+			/Fm2 32 0 R
+			/Fm3 33 0 R
+			/Fm4 34 0 R
+			/Fm5 35 0 R
+			/Fm6 36 0 R
+			/Im0 37 0 R
+			/Im1 38 0 R
+			/Im2 39 0 R
+			/pdfrw_0 40 0 R
+		>>
+	>>
+	/StructParents 0
+	/TrimBox [ 0 0 595.276 841.89 ]
+	/Type /Page
+>>
+endobj
+xref
+0 3
+0000000000 65535 f
+0000000010 00000 n
+0000000067 00000 n
+4 1
+0000000136 00000 n
+trailer
+<<
+	/Root 1 0 R
+	/Size 4
+>>
+startxref
+1065
+%%EOF

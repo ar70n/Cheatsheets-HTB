@@ -1,0 +1,3 @@
+El enunciado nos da un string que está encriptado. Nos damos cuenta de que tiene estructura de flag por las llaves y por las mayusculas y minusculas "LetsCTF" encajaría en el principio del string. Pero esto es solo una observación. Mi primera suposición fue que podría ser un cifrado cesar y efectivamente si cogemos la "A" y la "L" y hacemos una resta en ASCII vemos que están a 11 letras de distancia, ahora cogemos la "t" y la "e" y vemos que estńa a 11 letras de distancia (desde la t). Estamos intentando descifrar el cifrado sabiendo que el principio de la flag es LetsCTF
+
+Escribimos un script en python que nos haga la conversion y acabamos.

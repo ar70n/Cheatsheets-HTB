@@ -1,0 +1,116 @@
+/lib64/ld-linux-x86-64.so.2
+puts
+putchar
+__libc_start_main
+__cxa_finalize
+printf
+__isoc99_scanf
+strcmp
+libc.so.6
+GLIBC_2.7
+GLIBC_2.34
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+PTE1
+u+UH
+null
+trolf
+letsctf_H
+p4ssw0rdH
+LetsCTF
+CongratsH
+, your fH
+lag is: H
+LetsCTF{H
+r3v3rs1nH
+g_ch4ll3H
+_ch4ll3nH
+g3_0n3}
+%16s
+r3v3rs3dH
+You FailH
+||====================================================================||
+||//$//////////////////////////////////////////////////////////////$//||
+||(100)================| RESERVE BANK OF LETSCTF  |==============(100)||
+||//$//        ~         '------========--------'                //$//||
+||<< /        /$/              // ____ //                         / >>||
+||>>|        //L//            // ///..) //              XXXX       |<<||
+||<<|        // //           || <||  >}  ||                        |>>||
+||>>|         /$/            ||  $$ --/  ||          XXXXXXXXX     |<<||
+||<<|     Free to Use        *||  ||_/  //*                        |>>||
+||>>|                         *||/___|_//*                         |<<||
+||<</      Rating: E     _____/ LETSCTF  /________    XX XXXXX     />>||
+||//$/                 ~|  REPUBLIC OF LETSCTF    |~              /$//||
+||(100)===================  ONE HUNDRED COINS   =================(100)||
+LetsCTF Control Access
+Enter our password:
+%16s
+You Win
+_c01N
+You Failed
+;*3$"
+GCC: (Debian 13.2.0-2) 13.2.0
+Scrt1.o
+__abi_tag
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+bank.c
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+putchar@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+_ITM_deregisterTMCloneTable
+puts@GLIBC_2.2.5
+_edata
+_fini
+printf@GLIBC_2.2.5
+__data_start
+strcmp@GLIBC_2.2.5
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+_end
+__bss_start
+main
+__isoc99_scanf@GLIBC_2.7
+__TMC_END__
+_ITM_registerTMCloneTable
+__cxa_finalize@GLIBC_2.2.5
+_init
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.property
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.got.plt
+.data
+.bss
+.comment

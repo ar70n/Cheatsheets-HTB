@@ -1,0 +1,1 @@
+Al descargar el archivo lo primero que ejecuto es file para ver de que tipo de archivo se trata. Al ser un ejecutable le doy permisos de ejecucion y al probarlo nos pide una clave, como no tenemos ninguna pista pruebo a usar el comando strings sobre el archivo revelando la clave y obteniendo asi el flag.

@@ -1,0 +1,36 @@
+Lo primero que hacemos es ejecutar el comando file para ver de que tipo de archivo se trata:
+
+mixed.img: DOS/MBR boot sector
+
+El MBR o master boot record es el primer sector físico de un portador de datos (por ejemplo, un disco duro, una memoria USB) que se utiliza para arrancar (iniciar) los ordenadores seleccionando la particion configuarada para arrancar el sistema operativo.
+
+Lo siguiente que intento es listar las particiones que tiene el archivo pero vemos que no tiene ninguna particion:
+
+fdisk -l mixed.img
+
+
+Disk mixed.img: 32 MiB, 33554432 bytes, 65536 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x00000000
+
+
+No hemos obtenido mucha información útil así que vamos a ejecutar strings a ver si hay algo de texto plano que nos de una pista.
+Al ejecutar strings vemos distintas variantes de lo que podría ser la flag, como a simple vista no se aprecia cuantas variantes hay ejecutamos el siguiente comando para filtrarlas:
+
+
+
+grep "LetsCTF{" notas | sort | uniq
+
+LetsCTF{mix_m1x_m1x3d_4ll0c4t10n_t4bl3}
+LetsCTF{mix_m1x_m1x3d_4ll0c4t1on_t4bl3}
+LetsCTF{mix_m1x_m1x3d_4ll0c4ti0n_t4bl3}
+LetsCTF{mix_m1x_m1x3d_4ll0cat10n_t4bl3}
+LetsCTF{mix_m1x_m1x3d_all0c4t10n_t4bl3}
+LetsCTF{mix_m1x_m1xed_4ll0c4t10n_t4bl3}
+LetsCTF{mix_mix_m1x3d_4ll0c4t10n_t4bl3}
+
+
+Ahora vamos a probar cada una de estas a ver cual es la flag, de casualidad resulta que la primera es la flag.

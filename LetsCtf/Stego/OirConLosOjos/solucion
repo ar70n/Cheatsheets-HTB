@@ -1,0 +1,3 @@
+Tras investigar sobre la estegonografía (ocultar mensajes en archivos de imagenes, audio...)
+Descubri que hay un monton de herramientas para extraer y ocultar informacion en archivos (algo que yo desconocía totalmente).
+En el caso de los archivos .wav supuse que seria interesante analizar la onda del archivo por lo que investigando un poco vi que algo comun que se hace es aplicar una capa de WaveForm y una capa de Spectrograma para buscar mensajes ocultos. Por suerte este fue el caso.

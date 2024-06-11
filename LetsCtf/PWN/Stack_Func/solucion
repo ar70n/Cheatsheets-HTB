@@ -1,0 +1,40 @@
+El objetivo de este reto es conseguir de laguna forma llamar a la funcion complete_level al ejecutar el binario stack_func.
+Analizando el codigo vemos que hace usao d ela funcion gets() para obtener el input del usuario lo cual es peligroso ya que no limita el tamaño de los datos que se leen y puede causar un desbordamiento de buffer.
+Lo primero que tenemos que ve res que el buffer es un array de 64 bytes (char buffer[64];) por lo que a partir de 64 caracteres empezará el overflow.
+Ahora el siguiente paso es encontrar la direccion de la funcion complete_level().
+
+Para ello vamos a usar la instruccion info functions de gdb que nos da la siguiente informacion:
+
+(gdb) info functions
+All defined functions:
+
+Non-debugging symbols:
+0x0000000000400500  _init
+0x0000000000400530  puts@plt
+0x0000000000400540  printf@plt
+0x0000000000400550  __libc_start_main@plt
+0x0000000000400560  __gmon_start__@plt
+0x0000000000400570  gets@plt
+0x0000000000400580  fflush@plt
+0x0000000000400590  exit@plt
+0x00000000004005a0  _start
+0x00000000004005d0  deregister_tm_clones
+0x0000000000400600  register_tm_clones
+0x0000000000400640  __do_global_dtors_aux
+0x0000000000400660  frame_dummy
+0x000000000040068d  complete_level
+0x00000000004006aa  main
+0x0000000000400750  __libc_csu_init
+0x00000000004007c0  __libc_csu_fini
+0x00000000004007c4  _fini
+(gdb) info address complete_level
+Symbol "complete_level" is at 0x40068d in a file compiled without debugging.
+
+Por lo que la direccion de la funcion complete_level() es 0x40068d.
+Ahora vamos a contruir un payload usando pwntools ya que si intentamos insertar manualmente la direccion de la funcion stack_funck no va a funcionar ya que al estar en hexadecimal algunos de los caracteres no van a ser imprimibles y se van a perder.
+Observese payload.py
+
+Una vez ejecutado el payload se obtiene el resultado deseado, ahora hay que modificarlo para que se ejecute en el servidor.
+Y una vez modificado como se ve en payload_telnet.py se obtiene la flag.
+
+Referencias: https://youtu.be/vqNQe9xjz2Q

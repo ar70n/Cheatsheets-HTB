@@ -1,0 +1,3 @@
+Al ver el texto parece algún tipo de cifrado pero como no tengo claro cual es busque alguna página que identifican cifrados y el resultado fue que era bastante probable que fuera el cifrado "brainfuck". Que viendo el nombre de challenge tenía bastante sentido (La pagina: https://www.dcode.fr/cipher-identifier)
+
+Esta misma página te podía descifrar el mensaje opteniendo así la flag.

@@ -1,0 +1,101 @@
+s,t,4,e,L = [115, 116, 52, 101, 76] en decimal = [0x73, 0x74, 0x34, 0x65,0x4C] en hexadecimal
+
+Como los numero de la cadena inicial son entre el 0 y el 9 solo ocupan un byte como mucho
+
+
+unsigned char DAT_001044c2[] = {
+    0xFA, 0xBA, 0xFE, 0xBD, 0xE9, 0xC2, 0x82, 0xCE, 
+    0xD8, 0xE3, 0xFE, 0xEB, 0xF8, 0xC1, 0xC2, 0x82, 
+    0xBA, 0xFE, 0x00, 0x00, 0x00, 0x00
+};
+
+
+
+                             DAT_001044c2                                    XREF[2]:     main:00102686(*), 
+                                                                                          main:0010268d(*)  
+    0    001044c2 fa              ??         FAh
+    1    001044c3 ba              ??         BAh
+    2    001044c4 fe              ??         FEh
+    3    001044c5 bd              ??         BDh
+    4    001044c6 e9              ??         E9h
+    5    001044c7 c2              ??         C2h
+    6    001044c8 82              ??         82h
+    7    001044c9 ce              ??         CEh
+    8    001044ca d8              ??         D8h
+    9    001044cb e3              ??         E3h
+   10    001044cc fe              ??         FEh
+   11    001044cd eb              ??         EBh
+   12    001044ce f8              ??         F8h
+   13    001044cf c1              ??         C1h
+   14    001044d0 c2              ??         C2h
+   15    001044d1 82              ??         82h
+   16    001044d2 ba              ??         BAh
+   17    001044d3 fe              ??         FEh
+   18    001044d4 00              ??         00h
+   19    001044d5 00              ??         00h
+   20    001044d6 00              ??         00h
+   21    001044d7 00              ??         00h
+
+local_40 = [0x32,0x71!,--,0x70,--,--,0x45,--,0x10!,--,--,0x26!,--,--,0x05!,]
+
+solucion: [7 ,4,--,2 ,--,--, 8,--] en ASCII no en decimal!
+           0, 1, 2, 3, 4, 5, 6, 7,8,9 ,10,11,12,13,14
+Uno de los arrays usados en el programa para operaciones bitwise
+unsigned char DAT_001044d8[] = {
+    0xB0, 0xEC, 0xA3, 0xBF, 0xB2, 0xAE, 0xC8, 0xCE, 
+    0x83, 0xB4, 0xBB, 0xB7, 0x9E, 0x96, 0xC9, 0x81, 
+    0xB9, 0xBC, 0xFC, 0xB9, 0xAD, 0xBB, 0xE3, 0x95, 
+    0xC1, 0xBC, 0xBB, 0x94, 0xBD, 0xAD, 0xA4, 0xBE, 
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+};
+
+
+
+                             DAT_001044d8                                    XREF[2]:     main:0010278a(*), 
+                                                                                          main:00102791(*)  
+        001044d8 b0              ??         B0h
+        001044d9 ec              ??         ECh
+        001044da a3              ??         A3h
+        001044db bf              ??         BFh
+        001044dc b2              ??         B2h
+        001044dd ae              ??         AEh
+        001044de c8              ??         C8h
+        001044df ce              ??         CEh
+        001044e0 83              ??         83h
+        001044e1 b4              ??         B4h
+        001044e2 bb              ??         BBh
+        001044e3 b7              ??         B7h
+        001044e4 9e              ??         9Eh
+        001044e5 96              ??         96h
+        001044e6 c9              ??         C9h
+        001044e7 81              ??         81h
+        001044e8 b9              ??         B9h
+        001044e9 bc              ??         BCh
+        001044ea fc              ??         FCh
+        001044eb b9              ??         B9h
+        001044ec ad              ??         ADh
+        001044ed bb              ??         BBh
+        001044ee e3              ??         E3h
+        001044ef 95              ??         95h
+        001044f0 c1              ??         C1h
+        001044f1 bc              ??         BCh
+        001044f2 bb              ??         BBh
+        001044f3 94              ??         94h
+        001044f4 bd              ??         BDh
+        001044f5 ad              ??         ADh
+        001044f6 a4              ??         A4h
+        001044f7 be              ??         BEh
+        001044f8 00              ??         00h
+        001044f9 00              ??         00h
+        001044fa 00              ??         00h
+        001044fb 00              ??         00h
+        001044fc 00              ??         00h
+        001044fd 00              ??         00h
+        001044fe 00              ??         00h
+        001044ff 00              ??         00h
+
+
+
+Esto es lo que hace el programa mas o menos:
+
+

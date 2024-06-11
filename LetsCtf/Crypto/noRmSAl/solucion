@@ -1,0 +1,18 @@
+El archivo encrypt que nos adjunta el enunciado contiene el proceso de encriptacion del contenido del archi flag.txt al que no tenemos acceso.
+Para desencriptar la flag almacenada en la variable `c` tenemos que invertir el algoritmo RSA.
+
+Para ello lo primero que vamos a hacer es encontrar los valores de p y q.
+Esto lo podemos hacer resolviendo el sistema de ecuaciones no lineal:
+
+N = p * q
+M = 2 * p + q
+
+Para ello escribí un script en SageMath (solve.salge)
+Como vemos hay dos pares de soluciones para p y q pero nos quedamos con aquella en la que p y q son enteros.
+
+Ahora tenemos que calcular phi(n) = (p-1)*(q-1). En la referencia se puede encontrar el significado de este valor y de RSA en general.
+
+Una vez obtenida la clave privada `d` podemos obtener el `long` que guarda la flag.
+
+
+Referencias: https://es.wikipedia.org/wiki/RSA

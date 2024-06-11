@@ -1,0 +1,3 @@
+El titulo del reto ya nos da la pista de que hay que realizar una SQLi por lo que usando la plantilla de inyecciones de PayloadAllTheThings era bastante facil probar un par de ellas hasta que en una te aparecen todos los correos de la base de datos junto con la flag.
+
+Inyeccion usada: ' or true--

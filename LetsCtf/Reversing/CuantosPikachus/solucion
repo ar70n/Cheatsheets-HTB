@@ -1,0 +1,5 @@
+Como siempre lo primero que hacemos es ver que es un ejecutable usando file y luego vemos a ver si hay suerte y el comando strings nos devuelve algo útil lo cual no sucede en este caso.
+
+Pasamos directamente a analizar el codigo con ghidra. La parte que nos interesa del programa está en el main donde se genera la contraseña de la que habla el enunciado y la flag. 
+
+Por lo que exportamos la funcion main a un archivo de C, seleccionamos unicamenete el codigo que nos genera la clave y lo hacemos funcionar de modo que nos devuelve la contraseña la cual al introducirla en le programa nos da la flag.

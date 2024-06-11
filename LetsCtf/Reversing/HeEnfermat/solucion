@@ -1,0 +1,66 @@
+Lo primero que hacemos es ver que es un ejecutable con file y probar a usar strings para ver si hay algo de texto plano en el binario que nos pueda servir. No vemos nada interesante por lo que probamos a ejecutar el programa y vemos que nos pide una combinacion de 3 numeros. Como el reto se llama HeEnFermat puede que sea una referencia al ultimo teorema de Fermat que se dice que que una determinada expresion no tiene solucion. 
+
+Curiosidades a parte probamos a ejecutarlo con ltrace para ver si hay alguna funcion de alguna biblioteca conocida que nos pueda servir pero nada a si que procedemos a analizar el codigo con ghidra.
+
+Ghidra nos proporciona la funcion main:
+
+
+
+undefined8 main(void)
+
+{
+  char cVar1;
+  uint local_14;
+  uint local_10;
+  uint local_c;
+  
+  printf("Input a> ");
+  __isoc99_scanf(&DAT_0010200e,&local_c);
+  printf("Input b> ");
+  __isoc99_scanf(&DAT_0010200e,&local_10);
+  printf("Input c> ");
+  __isoc99_scanf(&DAT_0010200e,&local_14);
+  printf("(a, b, c) = (%u, %u, %u)\n",(ulong)local_c,(ulong)local_10,(ulong)local_14);
+  cVar1 = check(local_c,local_10,local_14);
+  if (cVar1 == '\0') {
+    puts("Invalid value :(");
+  }
+  else {
+    puts("wow :o");
+    print_flag();
+  }
+  return 0;
+}
+
+
+
+Claramente lo que nos interesa de aqui es la funcion check:
+
+
+
+undefined8 check(uint param_1,uint param_2,uint param_3)
+
+{
+  undefined8 uVar1;
+  
+  if (((param_1 < 3) || (param_2 < 3)) || (param_3 < 3)) {
+    uVar1 = 0;
+  }
+  else if (param_1 * param_1 * param_1 + param_2 * param_2 * param_2 == param_3 * param_3 * param_3)
+  {
+    uVar1 = 1;
+  }
+  else {
+    uVar1 = 0;
+  }
+  return uVar1;
+}
+
+
+
+Ahora lo que tenemos que hacer es pasar unos parametros que satisfagan la condicion de la funcion  (x^3+y^3=z^3). Lamentablemente por el ultimo teorema de fermat no existen tales x,y,z mayores que 3 por lo que no es posible encontrar la flag por aquí.
+
+
+Si vemos el main la otra funcion interesante es printflag la cual construye la flag a partir de unos valores hexadecimales por lo que si conseguimos compilar y ejecutar esta funcion sería suficiente. 
+
+Exportamos la funcion a C y sustituimos los tipos que pone ghidra al codigo descompilado por tipos estandares de C cambiamos el nombre de la funcion a main importamos la libresria stdint y ejecutamos obteniendo la flag.

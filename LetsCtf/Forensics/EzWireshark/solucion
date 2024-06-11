@@ -1,0 +1,3 @@
+AL comienzo de este reto no había usado nunca wireshark, sabía que servía para auditar redes y demás cosas pero nuncla lo había usado. Al ver el archivo vemos que hay muchos paquetes http y tcp. 
+Mirando por encima estos paquetes no era capaz de ver nada interesante. Vi en internet que se podía exportar los objetos http para inspeccionarlos me supongo. 
+Al exportar los objetos veo que hay muchos que estan encriptados pero que hay dos que están en texto planos por lo que al inspeccionarlos uno de ellos esta vacío y el otro tiene la flag codificada, se puede reconocer la estructura de la flag. A simple vista me parecía algún tipo de cifrado cesar y al probar a decodificarlo con ROT13 efectivamente obtenemos la flag.

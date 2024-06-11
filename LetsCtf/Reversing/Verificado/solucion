@@ -1,0 +1,98 @@
+La longitud del string es 64 aunque realmente se comprueba hasta la posicion 57
+
+Cadena: "LetsCTF{5ymb0l1c_4n4li51s_"
+
+0 = 76 
+1 = 101
+2 = 116
+3 = 115
+4 = 67
+5 = 84
+6 = 70
+7 = 123
+LetsCTF{
+
+8 = 53
+9 = 121
+10 = 109
+11 = 98
+12 = 48
+13 = 108
+14 = 49
+15 = 99
+16 = 95
+
+5ymb0l1c_
+
+
+17 = 52
+18 = 110
+19 = 52
+20 = 108
+21 = 105
+22 = 53
+23 = 49
+24 = 115
+25 = 95
+
+4n4li51s_
+
+26 =
+
+referencias: https://www.youtube.com/watch?v=xhJfTcZ2m1w
+
+
+
+
+Tenemos un archivo binario, pribamos a usar strings pero no hay nada interesante probamos a ejecutar con la llave que nos da el enunciado y no tenemos exito evidentemente. Ejecutando con ltrace vemos que la primera linea de nuestra clave tiene que coincidir con:
+
+strcmp("LetsCTF{this_is_not_the_flag", "-----BEGIN LICENCE KEY-----\n")
+
+
+Aun modificando la clave del enunciado para que cuadre seguimos sin tener exito.
+Analizamos el codigo con ghidra y vemos el siguiente fragmento:
+
+
+		<...SNIP...>
+
+        iVar1 = strcmp(local_38,"-----BEGIN LICENCE KEY-----\n");
+        if (iVar1 == 0) {
+          pcVar3 = fgets(local_88,0x41,local_10);
+          if (pcVar3 == (char *)0x0) {
+            puts("Failed to read file");
+            uVar2 = 1;
+          }
+          else {
+            iVar1 = check(local_88);
+            if (iVar1 == 0) {
+              pcVar3 = fgets(local_a8,0x1b,local_10);
+              if (pcVar3 == (char *)0x0) {
+                puts("Failed to read file");
+                uVar2 = 1;
+              }
+              else {
+                iVar1 = strcmp(local_a8,"-----END LICENCE KEY-----\n");
+                if (iVar1 == 0) {
+                  fclose(local_10);
+                  puts("Correct! This software is successfully activated!");
+			
+		<...SNIP...>
+
+Por lo que podemos deducir que la clave que tenemos que pasar al programa tiene que dar como resultado 0 al ser evaluada por la funcion check.
+
+La funcion check tiene mas de 30000 lineas de codigo por lo que va a ser complicado ver todas y cada una de las condiciones y analizar que valores tiene que tener cada una de las 64 posiciones de array. No podríamos hacerlo a mano ni por fuerza bruta ya que 64 caracteres es demasiado largo.
+
+Observando muy detenidamente la funcion te das cuenta de que al tratarse de una cadena de ifs y elseifs todos los elseifs tras la asignacion uVar=0 son irrelevantes ya que no se van a ejecutar. Y si nos fijamos a un mas para que la funcion asigne uVar=0 la unica forma es que se cumplan las condiciones las cuales tienen ifs dentro porque es la unica forma de llegar al if de ultimo nivel de profundidad que es donde se produce la asignacion uVar=0. Además estos ifs tienen una cosa muy peculiar y es que el primer if de todos de este tipo es:
+
+else if (*param_1 == 0x4c) 
+
+
+Osea que el primer valor de la cadena param_1 tiene que ser 0x4c. El siguiente if de este tipo es:
+
+else if ((*param_1 ^ param_1[1]) == 0x29)  
+
+Del que dependen param_1[0] y param_1[1], este patron se repite para todos los ifs de este tipo(los que tienen ifs anidados) por lo que como tenemos el valor de param_1[0] podemos obetner el valor de param_1[1] y asi para todos los demás. 
+
+Ahora el problema es que si vamos editando uno a uno cada if para crear un programa que nos genere la cadena nos vamos a eternizar por lo que en mi caso use las funciones de VSCode para editar todos los ifs a la vez eliminando todos los ifs intermedios que no ncesitamos y haciendo bucles while como se ve en check.c por lo que en vez de hacer 64 bucles while gracias a los atajos de VSCode solo tuve que hacer uno. 
+
+De esta forma si que podemos hacer por fuerza bruta la prueba probando caracteres ASCII hasta que cuadren todas la condiciones obteniendo asi la flag.

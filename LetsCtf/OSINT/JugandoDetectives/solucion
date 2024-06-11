@@ -1,0 +1,4 @@
+El enuncaido nos dice que hay una flag escondida en el perfil de X de SEIF. Inspeccionando los posts no parece haber nada interesante pero si vemos las imagenes que ha subido vemos un un gif de un perro que tiene texto alternativo que se seuele usar para temas de accesibilidad y tal. Hay vemos un string en base 64 por lo que lo decodificamos y tenemos la flag:
+
+echo -n "bGV0c2N0ZntmTEFnX0U1Q09OZDFEYV9FTl9lbF9URVg3b180TFQzUk5hdDFWb30=" | base64 -d > flag.txt
+

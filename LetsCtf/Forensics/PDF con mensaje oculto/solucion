@@ -1,0 +1,16 @@
+El reto nos adjunta un archivo pdf que si lo abrimos no tiene nada interesante. Si vemos sus metadatos tampoco hay nada interesante.
+Al ser un reto de forensics intuyo que lo que hay que hacer es intentar separar cada una de las partes que compone un pdf (que no son pocas)
+Para ello ejecutamos el comando pdfextract wine.pdf (una herraminta de origami-pdf) que nos crea una carpeta llamada wine.dump con todos los archivos que componen el pdf.
+Inspeccionando los streams que es lo unico que ha podido extraer junto con imagenes y texto que no nos dan ninguna pista, vemos que hay un archivo que contiene el siguiente texto:
+
+
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT 1 0 0 1 0 0 Tm (This IS the flag/password/token you are looking for: b4rc4_v3lh4) Tj T* ET
+ 
+
+
+De lo que podemos derivar que la flag es LetsCTF{b4rc4_v3lh4}
+
+
+
+Referencias: https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/specific-software-file-type-tricks/pdf-file-analysis

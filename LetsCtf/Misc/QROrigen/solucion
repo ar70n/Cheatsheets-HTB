@@ -1,0 +1,44 @@
+El reto nos adjunta una imagen la cual es un QR que de entrada tiene como unos puntos extraños.
+SI intentamos escanearlo a ver que informacion contiene veremos que no es detectado como un codigo QR.
+
+Nos tenemos que dar cuenta de que si hacemos zoom veremos muchos QRs pequeños. 
+Si escaneamos los primeros verticalmente (conviene hacerlo de las dos formas pero horizontalmente no nos va a salir)
+vemos el comienzo de un mensaje: LetsCTF e...
+
+Esto ya nos da la pista de que estos QRs componen un mensaje oculto.
+Si intentamos escanearlos uno a uno a mano vamos a tardar unas cuantas horas por lo que es mas ocnveniente aprender sobre como escanear QRs de forma automatica con python como tuve que hacer yo.
+La forma en que esto se hace es con una libreria que se encarga de escanear los QRs asi que por eso no nos tenemos que preocupar.
+Lo dificl va a ser recorrer la imagen y extraer los QRs de forma automatica.
+La idea es recorrer la imagen por columnas divididas en cuadrados en los que hay un solo cubo por cuadrado.
+Podemos entender la imagen que es de 7540x7540 pixeles como una matriz 29 filas y 29 columnas de cuadrados 260x260 pixeles.
+La forma en que elegi 260 pixeles es porque con un editor de imagenes vi que los cuadrados eran de 260x260 pixeles. (ver cudrado.png para entender mejor)
+
+
+Para trabajar con la imagen vamos a usar las librerias cv2, numpy y pyzbar.
+Lo primero que haremos será establcer la escala a 260 pixeles, instanciamos el scanner de QRs y cargamos la imagen y  obtenemos sus dimensiones
+
+Ahora para esta linea de codigo hacemos lo siguiente:
+
+msg = b''.join([scan(img[y:y+scale, x:x+scale]) for x in range(0, w, scale) for y in range(0, h, scale)])
+
+El código range(0, w, scale) genera una secuencia de números desde 0 hasta w (ancho de la imagen) con un paso de scale. Esto se utiliza para determinar las coordenadas x de los cuadrados.
+
+De manera similar, range(0, h, scale) genera una secuencia de números desde 0 hasta h (altura de la imagen) con un paso de scale. Esto se utiliza para determinar las coordenadas y de los cuadrados.
+
+img[y:y+scale, x:x+scale] selecciona un cuadrado de la imagen con las coordenadas x y y y tamaño scale x scale.
+
+scan(img[y:y+scale, x:x+scale]) aplica la función scan a cada cuadrado seleccionado.
+
+Finalmente, b''.join([...]) une todos los resultados de scan en una sola cadena de bytes
+
+La funcion scan hace lo siguiente:
+Hace un xor sobre los pixeles de la imagen y si el resultado es 0 entonces se devuelve un 1 y si no un 0.
+Esto se hace para los casos en los que el fondo es negro ya que el scanner solo puede escanear los QR si estos son de color negro (creo que hay otras librerias que permiten leer igualmente)
+Luego se hace un reescalado del cuadrdo para facilitar el escaneo del QR 
+Por ultimo escanemos y devolvemos la informacion escaneada.
+
+Ahora tenemos el siguiente mensaje:
+
+LetsCTF es un sueﾃｱo. ﾂｿCobb todavﾃｭa estﾃ｡ soﾃｱando? Espero que hayas programado la recuperaciﾃｳn de este mensaje porque "tenemos que ir mﾃ｡s profundo". iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAACdklEQVR4nO2aQW7bMBBF35QGsqSAHCBHoW6WM+UG0lFyA2lpgMLvgqTsOkjroIorFcOFYYlv8YHBcIZfY+Ira/zxJRycd95555133vnPeKvrBMwnGM2MsTy2vf6BepzfmE+SpAnMusVIypCUsZ4gSdKv/HfrcX5jfl4ztDw+yfrZDICa2A/V4/w2/OnDmzhh6W0xjR2I+bF6nP9eXgPA2FHObOv/sR7n/45v+RsFJVfnUwZCNggZgGsLZG/6nb+LH83MrAN7nYC0/sBS2ufH6nF+I77k741JqfElIzibbvf2pt/5e3jrgXL1JWZI72alCI/WrsOP1OP8VnzL37mDNJxNzM/Z0lvINdwsRpq6R+lxflue4l4MUSJNQRBzfSdJpAk0NJNDw970O/+H1cIYdPl36a80EARRHt9j8jTzMUiagopTORCkIWbKxsC6sTf9zt/FJ50N4tla1b2sxexVZ++vjsm3/I2ZS/2tK6oksdffw/Pp/UkQzyZNreoWf2N+kvUs/n3wmPxafwEIayavjZcyGry/Oip/2z+3qLbQaqr9s/dXh+Sv+mdqEw3tEWr+ev98VH7N39XpWIP8a/76+XxsPgjmE9bHs5UDGYLquM60WtS71e/8b/jqZcRMna/rgGI9S6qTdg/U4/xW/G3/XA/kdVW70u+/x+bX+UnGjnYhmqDk9Pji/tVB+av+qqbpamIlNScryfur/4Ufu8VKkEsRjhkNs3/fPyj/cT6WkGF+zqLM5izY1ebe9Dt/Hx+lMhpbPiKx1KDWTjq0Sdm96nf+k/WJ/1xNjuZ0eP09KH87P9lO5UydiY4+P+m8884777zzW/M/AVs+0N/2W04mAAAAAElFTkSuQmCC
+
+El principio es una referencia a la pelicula Inception y el final es un codigo base64 que al decodificarlo nos da una imagen (imagen.png) que contiene un QR que al escanearlo nos da la flag.

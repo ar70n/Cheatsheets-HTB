@@ -1,0 +1,18 @@
+Lo primero que hacmemos es ejecutar file checker para ver que tipo de archivo es y vemos que es ejecutable por lo que le damos permisos de ejecucion y probamos. Nos pide pasar una clave como argumento.
+
+A continuacion ejecutamos strings checker para ver si hay algo de texto plano que nos pueda dar alguna pista como en el reto "Caja de Secretos". Lo que nos llama la atención es el siguiente fragmento:
+
+
+es_esta_la_flag?
+Usage:
+./checker <clave>
+%02x
+Correcto, la flag es letsctf{%s}
+Incorrecto, vuelve a intentarlo mas tarde.
+
+
+
+Parece que la clave puede ser "es_esta_la_flag?" pero al probar vemos que da error.
+Viendo el enunciado nos da un pista: "Se realiza una comprobación de la clave de alguna forma."
+Esto quiere decir que se aplica algun tipo de hash sobre la clave y eso es lo que se compara.
+Por eso lo que hacemos ahora es coger "es_esta_la_flag?" que es la clave y le aplicamos el hash md5sum y efectivamente al usarlo como parametro nos da la flag que buscamos.

@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Date: Tue, 21 May 2024 12:17:15 GMT
+Server: Apache/2.4.54 (Debian)
+X-Powered-By: PHP/7.4.33
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Hint: Decodifica ([Get-flag]) en [shellmates] todo lo rápido que puedas, si lo haces tendrás la flag
+Get-flag: VHhtTnhoeWZPZG9CVFQxMA==
+Vary: Accept-Encoding
+Content-Length: 70
+Content-Type: text/html; charset=UTF-8
+
+Wuau, perfecto! Aquí tienes el flag: LetsCTF{M4s_r4p1d0_qu3_uN_eR1z0}

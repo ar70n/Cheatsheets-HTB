@@ -1,0 +1,13 @@
+Este reto sigue la estructura de XSS2 y XSS1 por lo que entiendo que lo que cambia es el filtro del servidor. Efectivamente probando con el paylod anterior vemos que no funciona por lo que pruebo que caracteres acepta el servidor y veo que no acepta mayúsulas ni "<" ni comillas simples. 
+
+Esta vez tome un enfoque distinto y empece a probar cosas coherentes tipo bypasseando unicode, ";", html tag incompleto... Hasta que probando a bypassear usando codificacion Octal veo que funciona 
+
+Uso cyberchef para codificar a octal alert('XSS') y un pequeño script en python que me ponga las "\". 
+
+
+Payload: javascript:"\74\163\166\147\40\157\156\154\157\141\144\75\141\154\145\162\164\50\47\130\123\123\47\51\76"
+
+
+
+Referencias: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection#bypass-using-octal-encoding
+

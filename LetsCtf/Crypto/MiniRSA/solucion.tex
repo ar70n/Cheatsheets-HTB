@@ -1,0 +1,13 @@
+Sabemos que el cifrado RSA genera el mensaje cifrado de la siguiente forma:
+
+$$c=m^e (mod n)$$
+
+Donde m es el mensaje original, $e$ es el expoenente de la clave publica y $n$ es el producto de dos numeros primos arbitrarios $p$ y $q$, de forma que $n$ es dificil de factorizar.
+
+Utilizando las definicion de modulo podemos reescribir la expresion como:
+
+$$c = m^e (mod n) \iff m^e = n\cdot t + c , t \in\mathbb{Z} \iff m = \left(n\cdot t + c\right)^{\frac{1}{e}}$$
+
+Por lo que nuestro objetivo es encontrar dicho $t$. Para ello hacemos un script en python que vaya probando valores de $t$ hasta encontrar uno que cumpla con la ecuacion.
+La libreria gmpy2 es una biblioteca de Python que proporciona acceso a las bibliotecas GMP (GNU Multiple Precision Arithmetic Library), MPFR (Multiple Precision Floating-Point Reliable) y MPC (Multiple Precision Complex) para realizar cálculos de alta precisión en Python.
+La vamos a necesitar al realizar raices cubicas de numeros muy grandes.

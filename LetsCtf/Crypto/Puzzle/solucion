@@ -1,0 +1,34 @@
+El primer cifrado tengo claro que es base64, el segundo cifrado es hexadecimal, el tercer cifrado me dio la corazaonada de que era ROT47 pero como no estba muy seguro use un identificador de cifrados (ver referencias) aunque estos funcionan peor con strings tan cortos.
+Para la ultima pieza el identificador de cifrados no me dio buenas sugerencias asi que lo que hice fue lo siguiente:
+Sabía que el "}" del final es igual que en la pieza decodificada asi que añadí uno al principio simplemente por rellenar caracteres no sé si esto tiene mucho sentido 
+pero ahora me dio una sugerencia distinta: 
+
+Affine Cipher	▪
+Mono-alphabetic Substitution	▪
+Cipher Disk/Wheel	▫
+ROT Cipher	▫
+Caesar Cipher	▫
+Atbash Cipher	▫
+
+Por lo que probe con la primera sugerencia y funciono para los parametros a = 25, b = 25.
+Ahora para crear la flag contrui el siguiente comando
+
+/bin/cat pieza1.txt | base64 -d > flag ; /bin/cat pieza2.txt  | tr -d ' ' | xxd -r -p >>flag; /bin/cat pieza3.txt | tr '!-~' 'P-~' >> flag; echo -n  'E@CH_pI3cE}' >> flag
+
+Para cada pieza se hace `/bin/cat` para printearla seguido de un pipe y el comando que la decodifica:
+ - Para la primera pieza se usa `base64 -d` para decodificarla
+ - Para la segunda pieza se usa `tr -d ' '` para eliminar los espacios y `xxd -r -p` para decodificarla de hexadecimal
+ - Para la tercera pieza se usa `tr '' 'P-~'` para decodificarla de ROT47 
+  - El comando tr '!-~' 'P-~' está configurado para realizar un desplazamiento de 47 posiciones, que es característico del cifrado ROT47. Aquí está como funciona: 
+    El rango '!-~' representa todos los caracteres ASCII imprimibles, que van desde el carácter 33 ('!') hasta el 126 ('~'). En total, hay 94 caracteres imprimibles en este rango.
+
+    El rango 'P-~' comienza en el carácter 80 ('P') y termina en 126 ('~'). Esto significa que los primeros 47 caracteres del rango '!-~' se mapearán a los caracteres 'P' a '~'.
+    Después de '~', el comando tr envuelve al principio del rango, por lo que los caracteres restantes del rango '!-~' se mapearán a los caracteres '!-O'. Esto completa el desplazamiento de 47 posiciones para todos los caracteres ASCII imprimibles.
+
+    Por lo tanto, el comando tr '!-~' 'P-~' realiza un desplazamiento de 47 posiciones, que es exactamente lo que hace el cifrado ROT47.
+    No se si está del todo correcto la explicacion.
+
+ - Para la cuarta pieza simplemente se añade al final de la flag ya que la decodifique en la web de la referencia.
+
+La ultima pieza como no sabía como decodificarla en bash simplemente la decodifique en la web de la referencia y la printee al final de la flag
+Referencias: https://www.dcode.fr/cipher-identifier

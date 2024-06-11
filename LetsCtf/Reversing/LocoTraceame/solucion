@@ -1,0 +1,7 @@
+El enucnciado nos menciona la herramienta ltrace la cual se usa para ver que llamadas a funciones de bibliotecas hace un programa y las muestra por pantalla (explicado mal y pronto).
+
+Vemos que el archivo es ejecutable probamos a ejecutarlo y vemos que nos pide una contraseña que no sabemos por lo que probamos a usar ltrace a ver si hay algo interesante y efectivamente vemos que nos printea la flag en texto plano.
+
+Importante tenemos que ejecutar ltrace con la opcion -s para que nos printee la flag entera ya que sino nos la truncará.
+
+Comando: ltrace -o output -s 5000 ./tracer_l

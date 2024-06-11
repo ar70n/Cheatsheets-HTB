@@ -1,0 +1,184 @@
+Tenemos un archivo binario, probamos a usar strings para ver si nos da algo interesante pero nada, probamos a ejecutarlo y nos pide un pin que desconocemos para desactivar una bomba.
+Probamos a usar ltrace para seguir recopilando informacion pero nada asi que procedemos a analizar el binario con ghidra.
+
+Inspeccionando la funcion main vemos que nuestro objetivo es que no se produzca una llamada a la funcion bomb() por lo que tenemos que dar una combinacion de caracteres numericos que pase las condiciones del main.
+Lo primero y mas sencillo que reconocemos es que la clave son 8 digitios numericos cada uno entre el 0 y el 9.
+
+A partir de aqui se pone interesante, Inspeccionando el codigo vemos que lo que hace el primer bucle es esto de aqui:
+
+char * password1 = input;
+...
+for ( size_t i=0 ; i < decode1.length() ; i++ ) {
+    decode1[i] ^= ~password1[i % strlen(password1)];
+    }
+...
+(Este codigo lo he modificado a mano para que sea mas facil de entender)
+
+
+Donde password es nuestro input por lo que esta codificando el input con el operador XOR y el operador NOT sobre nuestro input y otro array que desconocemos.
+Para hallar el valor de este array basta hacer click sobre el en ghidra para que nos lleve a la direccion en la que se encuentra este array en ensmablador que es este:
+
+std::string decode1 =  "\xfa\xba\xfe\xbd\xe9\xc2\x82\xce\xd8\xe3\xfe\xeb\xf8\xc1\xc2\x82\xba\xfe";
+
+
+Por lo que de momento el programa lo que hace es codificar nuestro input con el array decode1 y el input que le pasamos usando operaciones bitwise.
+Ahora hace una serie de comprobaciones sobre el input codificado que si no se cumplen nos llevaran a la funcion bomb():
+
+
+...
+if ((((decode1[1] != 'q') || (decode1[8] != '\x10')) || (decode1[0xb] != '&')) ||
+(decode1[0xe] != '\x05')) {
+bomb();
+}
+...
+
+
+Ghidra nos proporciona el codigo así de forma clara.
+El segundo bucle hace lo mismo que el primero pero con otro array que desconocemos y el input codificado con el primer array.
+De nuevo el segundo array lo encontramos en la direccion que nos proporciona ghidra:
+
+...
+std::string decode2 = "\xb0\xec\xa3\xbf\xb2\xae\xc8\xce\x83\xb4\xbb\xb7\x9e\x96\xc9\x81\xb9\xbc\xfc\xb9\xad\xbb\xe3\x95\xc1\xbc\xbb\x94\xbd\xad\xa4\xbe";
+for ( size_t i=0 ; i < decode2.length() ; i++ ) {
+    decode2[i] ^= ~password2[i % strlen(password2)];
+    }
+...
+
+
+Ahora tenemos la codificacion de nuestro input codificada con este segudno array con una serie de operaciones bitwise.
+Ahora tenemos un problema y es que ghidra nos proporciona las comprobaciones sobre esta segundo codificacion de la siguiente forma:
+
+
+pcVar6 = (char *)std::__cxx11::basic_string<>::operator[]((ulong)local_e8);
+if (*pcVar6 == 's') {
+  pcVar6 = (char *)std::__cxx11::basic_string<>::operator[]((ulong)local_e8);
+  if (*pcVar6 == 't') {
+    pcVar6 = (char *)std::__cxx11::basic_string<>::operator[]((ulong)local_e8);
+    if (*pcVar6 == '4') {
+      pcVar6 = (char *)std::__cxx11::basic_string<>::operator[]((ulong)local_e8);
+      if (*pcVar6 == 'e') {
+        pcVar6 = (char *)std::__cxx11::basic_string<>::operator[]((ulong)local_e8);
+        if (*pcVar6 == 'L') {
+          bVar2 = false;
+          goto LAB_001028b2;
+        }
+      }
+    }
+  }
+}
+bVar2 = true;
+LAB_001028b2:
+if (bVar2) {
+  bomb();
+}
+
+
+Donde pcVar6 es la direccion que apunta a una posicion del array que ghidra no nos proporciona. Entonces claro no podemos suponer sobre que posiciones del array esta haciendo las comprobaciones.
+Para solucionar esto nos tenemos que ir al codigo en ensmablador, el codigo en ensamblador de estas comprobaciones es este:
+
+
+LAB_00102805                                    XREF[1]:     001027b4(j)  
+00102805 48 8d 85        LEA        longitud=>local_e8,[RBP + -0xe0]
+         20 ff ff ff
+0010280c 48 89 c7        MOV        RDI,longitud
+0010280f e8 5c f9        CALL       <EXTERNAL>::std::__cxx11::basic_string<>::length undefined length(void)
+         ff ff
+00102814 48 39 45 d8     CMP        qword ptr [RBP + local_30],longitud
+00102818 0f 92 c0        SETC       longitud
+0010281b 84 c0           TEST       longitud,longitud
+0010281d 75 97           JNZ        LAB_001027b6
+0010281f 48 8d 85        LEA        longitud=>local_e8,[RBP + -0xe0]
+         20 ff ff ff
+00102826 be 1c 00        MOV        ESI,0x1c
+         00 00
+0010282b 48 89 c7        MOV        RDI,longitud
+0010282e e8 ad f9        CALL       <EXTERNAL>::std::__cxx11::basic_string<>::oper   undefined operator[](ulong param
+         ff ff
+00102833 0f b6 00        MOVZX      longitud,byte ptr [longitud]
+00102836 3c 73           CMP        longitud,0x73
+00102838 75 6c           JNZ        LAB_001028a6
+0010283a 48 8d 85        LEA        longitud=>local_e8,[RBP + -0xe0]
+         20 ff ff ff
+00102841 be 1d 00        MOV        ESI,0x1d
+         00 00
+00102846 48 89 c7        MOV        RDI,longitud
+00102849 e8 92 f9        CALL       <EXTERNAL>::std::__cxx11::basic_string<>::oper   undefined operator[](ulong param
+         ff ff
+0010284e 0f b6 00        MOVZX      longitud,byte ptr [longitud]
+00102851 3c 74           CMP        longitud,0x74
+00102853 75 51           JNZ        LAB_001028a6
+00102855 48 8d 85        LEA        longitud=>local_e8,[RBP + -0xe0]
+         20 ff ff ff
+0010285c be 07 00        MOV        ESI,0x7
+         00 00
+00102861 48 89 c7        MOV        RDI,longitud
+00102864 e8 77 f9        CALL       <EXTERNAL>::std::__cxx11::basic_string<>::oper   undefined operator[](ulong param
+         ff ff
+00102869 0f b6 00        MOVZX      longitud,byte ptr [longitud]
+0010286c 3c 34           CMP        longitud,0x34
+0010286e 75 36           JNZ        LAB_001028a6
+00102870 48 8d 85        LEA        longitud=>local_e8,[RBP + -0xe0]
+         20 ff ff ff
+00102877 be 1e 00        MOV        ESI,0x1e
+         00 00
+0010287c 48 89 c7        MOV        RDI,longitud
+0010287f e8 5c f9        CALL       <EXTERNAL>::std::__cxx11::basic_string<>::oper   undefined operator[](ulong param
+         ff ff
+00102884 0f b6 00        MOVZX      longitud,byte ptr [longitud]
+00102887 3c 65           CMP        longitud,0x65
+00102889 75 1b           JNZ        LAB_001028a6
+0010288b 48 8d 85        LEA        longitud=>local_e8,[RBP + -0xe0]
+         20 ff ff ff
+00102892 be 1f 00        MOV        ESI,0x1f
+         00 00
+00102897 48 89 c7        MOV        RDI,longitud
+0010289a e8 41 f9        CALL       <EXTERNAL>::std::__cxx11::basic_string<>::oper   undefined operator[](ulong param
+         ff ff
+0010289f 0f b6 00        MOVZX      longitud,byte ptr [longitud]
+001028a2 3c 4c           CMP        longitud,0x4c
+001028a4 74 07           JZ         LAB_001028ad
+
+
+La idea de este codigo en ensamblador es la siguiente:
+
+Cargamos el array:
+
+1. LEA longitud=>local_e8,[RBP + -0xe0]: Carga la dirección de local_e8 en el registro longitud.
+
+2. MOV RDI,longitud: Mueve la dirección de local_e8 al registro RDI para prepararse para la llamada a la función.
+
+3. CALL <EXTERNAL>::std::__cxx11::basic_string<>::length undefined length(void): Llama a la función length de std::string para obtener la longitud de la cadena.
+
+4. CMP qword ptr [RBP + local_30],longitud: Compara la longitud de la cadena con el valor en [RBP + local_30].
+
+5. SETC longitud: Establece el valor de longitud basado en el resultado de la comparación anterior.
+
+6. TEST longitud,longitud: Prueba si longitud es cero.
+
+7. JNZ LAB_001027b6: Si longitud no es cero, salta a LAB_001027b6.
+
+Luego, el código entra en una serie de bloques que siguen un patrón similar. Cada bloque:
+Carga la dirección de local_e8 en longitud.
+Establece ESI en un valor específico que parece ser un índice en la cadena.
+Llama a la función operator[] de std::string para obtener el carácter en ese índice.
+Compara el carácter obtenido con un valor específico.
+Si el carácter no coincide con el valor esperado, salta a LAB_001028a6.
+
+Entonces podemos deducir los indices del array que se estan comprobando y los valores que se estan comparando (esto ultimo ya nos lo proporciona ghidra).
+Son estos de aqui:
+
+MOV ESI, 0x1c (en decimal 28)
+MOV ESI, 0x1d (en decimal 29)
+MOV ESI, 0x7  (en decimal 7)
+MOV ESI, 0x1e (en decimal 30)
+MOV ESI, 0x1f (en decimal 31)
+
+Vale ya tenemos todas las condiciones que necesitmos para construir por fuerza bruta el pin que desactive la bomba.
+Algunas notas sobre descodificador.cpp
+
+Es un bucle que comprueba todas las combinaciones posibles de 8 digitos numericos y las descodifica con los arrays decode1 y decode2.
+
+ - std::string password1 = std::to_string(i);: Convierte el número de iteración actual a una cadena.
+ - password1 = std::string(8 - password1.length(), '0') + password1;: Rellena la contraseña con ceros a la izquierda hasta que tenga una longitud de 8.
+
+El resto del codigo hace lo mismo que el main original.

@@ -1,0 +1,5 @@
+printf("Input flag : ")                                                       = 13
+__isoc99_scanf(0x55f59db76012, 0x7ffd3ff60ab0, 0, 0)                          = 1
+strcmp("a", "LetsCTF{7r4c3d_dyn4m1c_l1br4ry_c4ll5_h3h3}")                     = 21
+puts("Incorrect")                                                             = 10
++++ exited (status 1) +++

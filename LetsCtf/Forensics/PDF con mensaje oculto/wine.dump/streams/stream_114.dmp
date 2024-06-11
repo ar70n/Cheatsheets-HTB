@@ -1,0 +1,5 @@
+{1.000000 2 1 roll 1.000000 2 1 roll 1.000000 2 1 roll 0 index 1.000000 
+cvr exch sub 2 1 roll 5 -1 roll 1.000000 cvr exch sub 5 1 
+roll 4 -1 roll 1.000000 cvr exch sub 4 1 roll 3 -1 roll 1.000000 
+cvr exch sub 3 1 roll 2 -1 roll 1.000000 cvr exch sub 2 1 
+roll pop }

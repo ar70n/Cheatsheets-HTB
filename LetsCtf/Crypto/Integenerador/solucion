@@ -1,0 +1,4 @@
+Dado el generador de enteros mi primer enfoque fue encontrar la flag por fuerza bruta.
+Probar todos los posibles numeros desde el 0 hasta 2^35 y ver cuando alguno de estos coincidia con alguno de los numeros del output.txt dado.
+El primera flag fue instantanea ya que es el numero 0, la segunda flag tambien fue relativamente rapida, pero para la tercera estaba tardando demasiado asi que mientras tanto pense en como podía descifrarla manualmente o con un script.
+Pero antes intente tambien empezar desde 2^35 hasta el 0 a ver si por casualidad la encontraba más rápido y para mi sorpresa la encontro instantaneamente por lo que no tuve que pensar nada.

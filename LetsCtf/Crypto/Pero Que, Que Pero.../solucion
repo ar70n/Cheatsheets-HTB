@@ -1,0 +1,46 @@
+La ecuación 
+
+$$s = (pow(p, q, n) + pow(q, p, n)) % n$$
+
+se basa en el teorema del pequeño teorema de Fermat en teoría de números, que dice que si p es un número primo y a es cualquier número entero, entonces $a^p$ es congruente con a modulo p.
+En nuestro caso sabemos que  p y q son primos y n = p*q, entonces pow(p, q, n) es congruente con p modulo n y pow(q, p, n) es congruente con q modulo n.
+
+Explicacion de este resultado:
+Estamos calculando pow(p, q, n) y pow(q, p, n), donde n = p*q. Aquí, p y q son números primos.
+Para pow(p, q, n), podemos ver que es congruente con p modulo n de la siguiente manera:
+
+Primero, notamos que p es congruente con p modulo n.
+Luego, elevamos ambos lados a la potencia de q.
+Esto nos da que p^q es congruente con p^q modulo n.
+Pero por el Pequeño Teorema de Fermat, sabemos que p^q es congruente con p modulo n cuando n es un número primo.
+Dado que n es el producto de dos números primos, p y q, y p no es divisible por n, podemos aplicar el Pequeño Teorema de Fermat para concluir que p^q es congruente con p modulo n.
+De manera similar, podemos argumentar que pow(q, p, n) es congruente con q modulo n.
+
+Por lo tanto, la expresión s = (pow(p, q, n) + pow(q, p, n)) % n es en realidad equivalente a s = (p + q) % n, que es simplemente p + q ya que p + q es definitivamente menor que n = p*q.
+
+Una vez hechos los numeros y la teoría matemática vamos a escribir un script en Sage que encuentre p y q, y un script en python que nos devuelva la flag.
+
+
+Entonces tenemos un sistema de dos ecuaciones con dos incognitas:
+
+p*q=n
+p+q=s
+
+Podemos resolver el sistema y nos quedará una ecuación cuadrática del tipo:
+
+q^2-s*q+n = 0 
+
+(Da igual si es p o q la incognita por razones obvias)
+
+Otro enfoque que me llamo mucho la atención es considerar el polinomio cuyas raices son p y q:
+
+R(x) = (p-x)*(q-x) 
+
+Desarrollando la expresion nos queda:
+
+R(x) = x^2-x(p+q)+p*q = x^2-x*s+n
+
+Hayando las raices de R resolviendo la misma ecuacion que antes nos da los valores de p y q
+Con script.py generamos la clave privada y la usamos para obtener la flag.
+
+Referencias: https://github.com/maple3142/My-CTF-Challenges/tree/master/ImaginaryCTF/Round%2026/pqqp

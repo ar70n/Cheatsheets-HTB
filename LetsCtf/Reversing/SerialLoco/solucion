@@ -1,0 +1,93 @@
+Tenemos un binario que nos pide un correo y un codigo serial que desconocesmo, al usar strings y ltrace no obtenemos nada de informacion por lo que procedemos a analizar el codigo con ghidra:
+Vemos una funcion main que nos pide el correo y el serial y hace una serie de comprobaciones:
+
+ - El correo tiene que tener mas de tres caracteres y tiene que tener @
+ -Sabemos que el serial es de por lo menos 25 caracteres y tiene que cumplir con las condiciones de los ifs.
+
+Sin embargo ocurre algo raro y es que ghidra dice que my_serial es un array de 4 bytes pero el codigo pide que la longitud del serial sea mayor que 24 por lo que algo no cuadra.
+Supuse que ghidra interpreto mal el array my_serial y que los nombres de las variables estan en orden con respecto a donde se declararon ya que al ghidra interpretar my_serial como un array de 4 bytes el resto de bytes que componen el serial ghidra los ha podido interpretar como variables independientes del array my_serial.
+Además me he fijado en como se inicializan en el codigo ensamblador y como es un stack no me ha parecido muy dificil suponer que estan en orden y que son un array, ademas tiene sentido porque el ultimo caracter del array nos queda '\0'.
+Construyendo el array a mano nos queda:
+
+serial: Tzey7-drFLT-ctfgH5-puTF6Y
+
+Efectivamente esta es la solucion.
+
+
+La declaracion de variables segun ghidra:
+
+                             **************************************************************
+                             *                          FUNCTION                          *
+                             **************************************************************
+                             undefined main()
+             undefined         AL:1           <RETURN>                                XREF[1]:     0010263e(W)  
+             undefined8        RAX:8          longitud                                XREF[1]:     0010263e(W)  
+             undefined8        Stack[-0x10]:8 local_10                                XREF[1]:     00102a4e(R)  
+             undefined8        Stack[-0x20]:8 local_20                                XREF[2]:     0010259d(W), 
+                                                                                                   001029f6(R)  
+             undefined1        Stack[-0x20f   my_serial_25                            XREF[1]:     001026e7(R)  
+             undefined1        Stack[-0x210   my_serial_24                            XREF[1]:     0010288b(R)  
+             undefined1        Stack[-0x211   my_serial_23                            XREF[1]:     0010279c(R)  
+             undefined1        Stack[-0x212   my_serial_22                            XREF[2]:     0010274e(R), 
+                                                                                                   0010285a(R)  
+             undefined1        Stack[-0x213   my_serial_21                            XREF[2]:     0010280a(R), 
+                                                                                                   00102871(R)  
+             undefined1        Stack[-0x214   my_serial_20                            XREF[2]:     0010282a(R), 
+                                                                                                   00102881(R)  
+             undefined1        Stack[-0x215   my_serial_19                            XREF[1]:     0010284a(R)  
+             undefined1        Stack[-0x216   my_serial_18                            XREF[1]:     001026a0(R)  
+             undefined1        Stack[-0x217   my_serial_17                            XREF[3]:     00102711(R), 
+                                                                                                   001027a6(R), 
+                                                                                                   0010283a(R)  
+             undefined1        Stack[-0x218   my_serial_16                            XREF[2]:     001027dc(R), 
+                                                                                                   0010281a(R)  
+             undefined1        Stack[-0x219   my_serial_15                            XREF[1]:     001027e6(R)  
+             undefined1        Stack[-0x21a   my_serial_14                            XREF[1]:     001027cc(R)  
+             undefined1        Stack[-0x21b   my_serial_13                            XREF[1]:     001027bc(R)  
+             undefined1        Stack[-0x21c   my_serial_12                            XREF[1]:     0010276e(R)  
+             undefined1        Stack[-0x21d   my_serial_11                            XREF[1]:     00102695(R)  
+             undefined1        Stack[-0x21e   my_serial_10                            XREF[2]:     001026b7(R), 
+                                                                                                   0010286a(R)  
+             undefined1        Stack[-0x21f   my_serial_9                             XREF[1]:     0010275e(R)  
+             undefined1        Stack[-0x220   my_serial_8                             XREF[1]:     00102747(R)  
+             undefined1        Stack[-0x221   my_serial_7                             XREF[1]:     00102737(R)  
+             undefined1        Stack[-0x222   my_serial_6                             XREF[1]:     00102727(R)  
+             undefined1        Stack[-0x223   my_serial_5                             XREF[2]:     0010268a(R), 
+                                                                                                   00102778(R)  
+             undefined1        Stack[-0x224   my_serial_4                             XREF[1]:     00102707(R)  
+             undefined4        Stack[-0x228   my_serial                               XREF[4,3]:   001025e4(*), 
+                                                                                                   00102670(*), 
+                                                                                                   001026b0(R), 
+                                                                                                   001028fa(*), 
+                                                                                                   001026c7(R), 
+                                                                                                   001026f7(R), 
+                                                                                                   001026d7(R)  
+             undefined1[512]   Stack[-0x428   mail                                    XREF[3]:     001025b7(*), 
+                                                                                                   00102634(*), 
+                                                                                                   00102656(*)  
+             undefined1        Stack[-0x448   local_448                               XREF[5]:     001028c5(*), 
+                                                                                                   00102930(*), 
+                                                                                                   00102953(*), 
+                                                                                                   001029a1(*), 
+                                                                                                   001029e2(*)  
+             undefined8        Stack[-0x450   local_450                               XREF[5]:     001028ed(W), 
+                                                                                                   0010290c(R), 
+                                                                                                   00102929(R), 
+                                                                                                   0010294b(RW), 
+                                                                                                   00102962(R)  
+             undefined4        Stack[-0x454   i                                       XREF[4]:     001025fd(W), 
+                                                                                                   00102609(R), 
+                                                                                                   00102624(RW), 
+                                                                                                   0010262b(R)  
+             undefined1        Stack[-0x455   is_email                                XREF[2]:     0010261d(W), 
+                                                                                                   00102648(R)  
+             undefined1        Stack[-0x456   local_456                               XREF[3]:     001028af(*), 
+                                                                                                   001028be(*), 
+                                                                                                   001028de(*)  
+             undefined4        Stack[-0x45c   local_45c                               XREF[1]:     00102587(W)  
+             undefined8        Stack[-0x468   local_468                               XREF[1]:     0010258d(W)  
+                             main                                            XREF[6]:     Entry Point(*), 
+                                                                                          _start:00102438(*), 001030e0, 
+                                                                                          0010325c(*), 00103417(*), 
+                                                                                          00103429(*)  
+        00102577 f3 0f 1e fa     ENDBR64

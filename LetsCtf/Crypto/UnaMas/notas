@@ -1,0 +1,58 @@
+me da que hay que hacer bruteforce.
+La flag son 32c caracteres alfanumericos
+
+# Una Mas
+El enunciado tiene adjuntos dos archivos `salida.txt` y `unmas.py`
+
+```python
+import random
+
+OUT = open('salida.txt', 'w')
+FLAG = 'LetsCTF{????????????????????????????????}' #LetsCTF{[0-9a-f]{32}}
+N = 64
+
+l = len(FLAG) # 41
+arr = [random.randint(1,pow(2, N)) for _ in range(l)] # [1, 2^64] x 41
+OUT.write(f'{arr}\n')
+
+s_arr = []
+for i in range(len(FLAG) - 1):
+    s_i = sum([arr[j]*ord(FLAG[j]) for j in range(l)])
+    s_arr.append(s_i)
+    arr = [arr[-1]] + arr[:-1]
+
+OUT.write(f'{s_arr}\n')
+
+```
+
+Este programa genera primero una matriz `arr` de longitud `l` de enteros entre `1` y `2**64`.<br>
+
+A continuación, se genera un array `s_arr` donde cada elemento es la suma de `arr[j]` multiplicado por `ord(FLAG[j])` y en cada paso se rota `arr` a la derecha una vez.<br>
+`salida.txt` contiene la salida de este programa ejecutado con la flag.<br>
+Sabemos que `l=41` ya que la primera línea de la salida contiene una matriz de longitud 41.<br>
+
+
+Si consideramos que cada carácter de la bandera tiene el valor ASCII $f_i$ y que el valor de arr es $a_i$ para $i = 0,1,\ldots,40$, entonces nos dan las siguientes ecuaciones:
+
+
+$$
+\begin{align*}
+f_0\cdot a_0 + f_1\cdot a_1 +\cdots + f_{39}\cdot a_{39} + f_{40}\cdot a_{40} &= s_0 \\
+f_0\cdot a_{40} + f_1\cdot a_0 + \cdots + f_{39}\cdot a_{38} + f_{40}\cdot a_{39} &= s_1 \\
+f_0\cdot a_{39} + f_1\cdot a_{40} + \cdots + f_{39}\cdot a_{37} + f_{40}\cdot a_{38} &= s_2 \\
+\vdots \\
+f_0\cdot a_{2} + f_1\cdot a_{3} + \cdots + f_{39}\cdot a_{0} + f_{40}\cdot a_{1} &= s_{39} \\
+\end{align*}
+$$
+
+
+Asi que tenemos 41 incognitas $f_i$ para $i=1, 2,\ldots,40$ y 40 ecuaciones. Pero, sabemos el valor de algunas de estas incógnitas ya que sabemos que la flag es de la forma `LetsCTF{[0-9a-f]{32}}`.<br>
+
+Por lo tanto, sabemos $f_0 = \text{ord}('L') = 76$ así que ahora tenemos 40 ecuaciones y 40 incógnitas y podemos resolverlas utilizando cualquier solucionador de álgebra lineal.<br>
+
+Esta vez he elegido SympPy ya que tiene una preciosión computacional muy alta.
+
+
+
+Referencias: https://github.com/nzec/ctf-notes/tree/master/NahamCon23/Just%20One%20More
+             https://ctftime.org/writeup/40291

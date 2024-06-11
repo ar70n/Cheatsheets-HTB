@@ -1,0 +1,21 @@
+En el reto nos dan una apk por lo que podemos usar una herramineta que nos la "decompile" o podemos hacerlo a mano, yo use decompiler.com
+Como nunca había hecho una análisis de una apk investigue un poco y encontré el enlace de abajo que explica paso a paso un par de ejemplos.
+En este caso al decompilar la apk vi interesante la carpeta \ClickerBypass\sources\ctf\clickrgame donde encontramos uno archivos .java
+Analizando el codigo vemos que el valor de nuestra flag es "letsctf{" + MainActivity.this.textSet + "}" por lo que tenemos que analizar como se calcula el valor de textSet
+Este valor se calcula a partir de una funcion getHex() que se aplica sobre un objeto de la clase "c" con argumento asdfff.
+
+El método getHex() en la clase c está haciendo algo más que simplemente convertir una cadena a hexadecimal. Está generando un hash SHA-256 de la cadena de entrada y luego convirtiendo ese hash a una cadena hexadecimal.
+
+El valor de entrada para el hash SHA-256 es la concatenación de a.OOOO000OOO000OO00000(this.b.b) y this.input. Aquí, this.input es la cadena "asdfff" que vimos antes, y a.OOOO000OOO000OO00000(this.b.b) es una llamada a un método que toma this.b.b como argumento. Necesitamos saber qué hace este método y cuál es el valor de this.b.b para poder calcular el valor de la flag.
+Ahora podemos ver que a.OOOO000OOO000OO00000(this.b.b) es una llamada a un método que invierte una cadena. Dado que this.b.b es "aaaa", la llamada al método devuelve "aaaa" (que es la misma cadena, ya que "aaaa" invertida sigue siendo "aaaa").
+
+Por lo tanto, el valor de entrada para el hash SHA-256 en getHex() es la concatenación de "aaaa" y "asdfff", que es "aaaaasdfff".
+Creamos un metodo main para ejecutar solo el codigo que nos interesa enb la clase c:
+  public static void main(String[] args) {
+    	System.out.println(new c("asdfff").getHex());
+    }
+
+Y obtenemos la parte de la flag que nos faltaba: 6A58CDCFCFE5C3AA41E01A5908BD9F8D
+Recursos:
+https://www.decompiler.com/
+https://nusgreyhats.org/posts/writeups/introduction-to-android-app-reversing/

@@ -1,0 +1,12 @@
+Tenemos un archivo gameboy.jpg que tiene un mensaje oculto que debemos encontrar.
+Lo primero que hacemos es comprobar que tipo de archivo es usando file gameboy.jpg:
+
+gameboy.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, baseline, precision 8, 800x970, components 3
+
+
+Es un archivo JPEG, al abrirlo vemos una imagen de una gameboy y no parece verse nada interesante en la imágen. A continuacion subí la imagen a la web referenciada la cual hace una especie de análisis tanto visuales como con distintas herraminetas pero de nuevo no obtenemos nada interesante.
+
+En este punto lo único que se me ocurrió es usar la herramineta stegcracker a la cual se le pasa el archivo stego y una lista de posibles palabras clave que descifren el mensaje oculto.
+Efectivamente a ejecutar stegcracker con la rockyou.txt wordlist obtenemos que la palabra clave es "super" y tambien la flag en un archivo generado por stegcracker.
+
+Referencias: https://aperisolve.com/

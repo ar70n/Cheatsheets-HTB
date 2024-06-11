@@ -1,0 +1,1 @@
+Como ejemplo.py ya nos proporciona como se decodifican un string en binario lo unico que tenemos que hacer es importar el archivo .csv y convertirlo en una lista de 0 y 1.

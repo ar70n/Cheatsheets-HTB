@@ -1,0 +1,6 @@
+El enunciado nos proporciona un codigo en LUA que esta ofuscado esto es que se ha hecho ilegible para que no se pueda entender la funcionalidad del codigo.
+A primera vista parece que hay que intentar deofuscar el codigo de una manera pero si emepzamos a leer el codigo aparece varias veces el string: "lol you have to stop trying to deobfuscate"
+
+Lo primero que he hecho es descargarme una extensaion de LUA en VScode para que al hacer fromat document este fuera muchas más legible. Estuve intentando buscar muchos desosfucadores de lua en internet pero no encontre nada. En este punto lo unci que se me ocurrio fue ir eliminando todas las variables que no se usaban en el codigo para simpllificarlo un poco y printear cada retorno de cada funcion que devolviera algo que se pareciera a un string con la esperanza de enontrar algo interesante.
+
+Sorprendentemente en el archivo output que es el resultado de ejecutar main_o.lua aparece la flag en vertical y con muchos caracteres sin significado por el archivo. Se podría decir que tuve suerte. Intente aislar de alguna manera la funcion que producia el string de la flag en intnento.lua pero no fui capaz.
