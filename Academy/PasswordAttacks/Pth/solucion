@@ -1,0 +1,3 @@
+En la pregunta: "Connect via RDP and use Mimikatz located in c:\tools to extract the hashes presented in the current session. What is the NTLM/RC4 hash of David's account?" 
+
+Para entender como funciona mimikatz y tal muy importante https://book.hacktricks.xyz/v/es/windows-hardening/stealing-credentials/credentials-mimikatz
