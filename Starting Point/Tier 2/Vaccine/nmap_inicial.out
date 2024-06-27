@@ -1,0 +1,10 @@
+# Nmap 7.94SVN scan initiated Thu Jun 27 12:56:10 2024 as: nmap -Pn --disable-arp-ping -o nmap_inicial.out 10.129.5.103
+Nmap scan report for 10.129.5.103 (10.129.5.103)
+Host is up (0.14s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+21/tcp open  ftp
+22/tcp open  ssh
+80/tcp open  http
+
+# Nmap done at Thu Jun 27 12:56:22 2024 -- 1 IP address (1 host up) scanned in 11.12 seconds
