@@ -1,0 +1,2 @@
+Para empezar
+ffuf -u http://10.129.201.89:8080/CGI/FUZZ -w cgi:CGI  -w /usr/share/wordlists/dirb/common.txt:FUZZ -ic -e .bat,.cgi

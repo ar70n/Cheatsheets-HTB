@@ -1,0 +1,56 @@
+# Nmap 7.94SVN scan initiated Wed Jul 24 12:13:45 2024 as: nmap -Pn --disable-arp-ping -sC -sV --open -oA scan 10.129.95.200
+Nmap scan report for 10.129.95.200 (10.129.95.200)
+Host is up (0.11s latency).
+Not shown: 627 closed tcp ports (conn-refused), 364 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT     STATE SERVICE       VERSION
+53/tcp   open  domain        Simple DNS Plus
+80/tcp   open  http          Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: MegaCorp
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: MEGACORP.LOCAL, Site: Default-First-Site-Name)
+445/tcp  open  microsoft-ds  Windows Server 2016 Standard 14393 microsoft-ds (workgroup: MEGACORP)
+636/tcp  open  tcpwrapped
+3269/tcp open  tcpwrapped
+3389/tcp open  ms-wbt-server Microsoft Terminal Services
+|_ssl-date: 2024-07-24T10:21:25+00:00; +7m12s from scanner time.
+| ssl-cert: Subject: commonName=MULTIMASTER.MEGACORP.LOCAL
+| Not valid before: 2024-07-23T10:04:34
+|_Not valid after:  2025-01-22T10:04:34
+| rdp-ntlm-info: 
+|   Target_Name: MEGACORP
+|   NetBIOS_Domain_Name: MEGACORP
+|   NetBIOS_Computer_Name: MULTIMASTER
+|   DNS_Domain_Name: MEGACORP.LOCAL
+|   DNS_Computer_Name: MULTIMASTER.MEGACORP.LOCAL
+|   DNS_Tree_Name: MEGACORP.LOCAL
+|   Product_Version: 10.0.14393
+|_  System_Time: 2024-07-24T10:21:11+00:00
+Service Info: Host: MULTIMASTER; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2024-07-24T10:21:13
+|_  start_date: 2024-07-24T10:04:43
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled and required
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: required
+| smb-os-discovery: 
+|   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)
+|   Computer name: MULTIMASTER
+|   NetBIOS computer name: MULTIMASTER\x00
+|   Domain name: MEGACORP.LOCAL
+|   Forest name: MEGACORP.LOCAL
+|   FQDN: MULTIMASTER.MEGACORP.LOCAL
+|_  System time: 2024-07-24T03:21:11-07:00
+|_clock-skew: mean: 1h31m11s, deviation: 3h07m50s, median: 7m11s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Jul 24 12:14:21 2024 -- 1 IP address (1 host up) scanned in 35.47 seconds

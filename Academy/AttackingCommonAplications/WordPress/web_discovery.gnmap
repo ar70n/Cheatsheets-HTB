@@ -1,0 +1,18 @@
+# Nmap 7.94SVN scan initiated Sat Jul 13 13:26:59 2024 as: nmap -Pn --disable-arp-ping -iL scope_list --open -oA web_discovery
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+Host: 10.129.96.154 (app.inlanefreight.local)	Status: Up
+Host: 10.129.96.154 (app.inlanefreight.local)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///
+# Nmap done at Sat Jul 13 13:27:12 2024 -- 8 IP addresses (8 hosts up) scanned in 13.47 seconds

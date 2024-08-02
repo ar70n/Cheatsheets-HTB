@@ -1,0 +1,67 @@
+200 OK
+Vary: Accept-Encoding
+Server: Apache/2.4.41 (Ubuntu)
+Set-Cookie: 72af8f2b24261272e581a49f5c56de40=csrfgivuo14r40dg7ligsgcdpt; path=/; HttpOnly
+Last-Modified: Sat, 13 Jul 2024 14:37:18 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Retry-Count: 0
+Content-Type: text/html; charset=utf-8
+Date: Sat, 13 Jul 2024 14:37:18 GMT
+Permissions-Policy: interest-cohort=()
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Pragma: no-cache
+Date: Sat, 13 Jul 2024 14:37:18 GMT
+Last-Modified: Sat, 13 Jul 2024 14:37:18 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Vary: Accept-Encoding
+Retry-Count: 0
+Server: Apache/2.4.41 (Ubuntu)
+Set-Cookie: 72af8f2b24261272e581a49f5c56de40=r87io2frlq2ms8ble5e8be267q; path=/; HttpOnly
+Permissions-Policy: interest-cohort=()
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Content-Type: text/html; charset=utf-8
+Retry-Count: 0
+Date: Sat, 13 Jul 2024 14:37:19 GMT
+Set-Cookie: 72af8f2b24261272e581a49f5c56de40=afp38q9t4rtoln26dhas8lfv8j; path=/; HttpOnly
+Last-Modified: Sat, 13 Jul 2024 14:37:19 GMT
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Type: text/html; charset=utf-8
+Server: Apache/2.4.41 (Ubuntu)
+Permissions-Policy: interest-cohort=()
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Date: Sat, 13 Jul 2024 14:37:21 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Last-Modified: Sat, 13 Jul 2024 14:37:21 GMT
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Type: text/html; charset=utf-8
+Set-Cookie: 72af8f2b24261272e581a49f5c56de40=ff489u464esop44lbfjh4665fl; path=/; HttpOnly
+Permissions-Policy: interest-cohort=()
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Retry-Count: 0
+Permissions-Policy: interest-cohort=()
+Last-Modified: Sat, 13 Jul 2024 14:37:21 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Retry-Count: 0
+Date: Sat, 13 Jul 2024 14:37:21 GMT
+Set-Cookie: 72af8f2b24261272e581a49f5c56de40=66sa2kjkvm7i4gqctrpcmdf0bb; path=/; HttpOnly
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Vary: Accept-Encoding
+Content-Type: text/html; charset=utf-8
+Server: Apache/2.4.41 (Ubuntu)
+Date: Sat, 13 Jul 2024 14:37:21 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Last-Modified: Sat, 13 Jul 2024 14:37:21 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Retry-Count: 0
+Content-Type: text/html; charset=utf-8
+Set-Cookie: 72af8f2b24261272e581a49f5c56de40=h7coj1sgtu6781lol98vtjv7bl; path=/; HttpOnly
+Permissions-Policy: interest-cohort=()
+Expires: Wed, 17 Aug 2005 00:00:00 GMT
+Pragma: no-cache
+Vary: Accept-Encoding

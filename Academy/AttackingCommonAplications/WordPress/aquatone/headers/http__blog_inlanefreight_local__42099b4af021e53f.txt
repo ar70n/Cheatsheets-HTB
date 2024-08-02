@@ -1,0 +1,7 @@
+200 OK
+Link: <http://blog.inlanefreight.local/index.php?rest_route=/>; rel="https://api.w.org/"
+Vary: Accept-Encoding
+Retry-Count: 0
+Content-Type: text/html; charset=UTF-8
+Date: Sat, 13 Jul 2024 14:37:19 GMT
+Server: Apache/2.4.41 (Ubuntu)

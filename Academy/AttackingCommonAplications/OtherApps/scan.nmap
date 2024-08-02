@@ -1,0 +1,43 @@
+nmap -Pn --disable-arp-ping 10.129.71.120 -p21,80,135,139,443,445,7001 -sC -sV
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-07-22 14:55 CEST
+Nmap scan report for 10.129.71.120 (10.129.71.120)
+Host is up (0.41s latency).
+
+PORT     STATE SERVICE       VERSION
+21/tcp   open  ftp           Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| 09-07-20  04:51PM       <DIR>          aspnet_client
+| 09-07-20  04:49PM                99710 iisstart.png
+|_09-07-20  07:13PM                  218 web.config
+| ftp-syst:
+|_  SYST: Windows_NT
+80/tcp   open  http          Microsoft IIS httpd 10.0
+|_http-title: 10.129.71.120 - /
+|_http-server-header: Microsoft-IIS/10.0
+| http-methods:
+|_  Potentially risky methods: TRACE
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http      Microsoft IIS httpd 10.0
+| http-methods:
+|_  Potentially risky methods: TRACE
+|_http-title: 10.129.71.120 - /
+|_http-server-header: Microsoft-IIS/10.0
+| tls-alpn:
+|   h2
+|_  http/1.1
+| ssl-cert: Subject: commonName=MS01
+| Not valid before: 2020-09-06T23:51:02
+|_Not valid after:  2021-03-08T23:51:02
+|_ssl-date: 2024-07-22T12:56:03+00:00; 0s from scanner time.
+445/tcp  open  microsoft-ds?
+7001/tcp open  http          Oracle WebLogic admin httpd 12.2.1.3 (T3 enabled)
+|_http-title: Error 404--Not Found
+|_weblogic-t3-info: T3 protocol in use (WebLogic version: 12.2.1.3)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 34.17 seconds

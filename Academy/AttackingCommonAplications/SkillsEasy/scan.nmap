@@ -1,0 +1,56 @@
+# Nmap 7.94SVN scan initiated Mon Jul 22 16:20:07 2024 as: nmap -Pn --disable-arp-ping -p21,80,135,139,443,445,3389,8000,8009,8080 -sC -sV -oA scan 10.129.3.80
+Nmap scan report for 10.129.3.80 (10.129.3.80)
+Host is up (0.46s latency).
+
+PORT     STATE  SERVICE       VERSION
+21/tcp   open   ftp           Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_09-01-21  08:07AM       <DIR>          website_backup
+| ftp-syst: 
+|_  SYST: Windows_NT
+80/tcp   open   http          Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-title: Freight Logistics, Inc
+135/tcp  open   msrpc         Microsoft Windows RPC
+139/tcp  open   netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp  closed https
+445/tcp  open   microsoft-ds?
+3389/tcp open   ms-wbt-server Microsoft Terminal Services
+|_ssl-date: 2024-07-22T14:20:42+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=APPS-SKILLS1
+| Not valid before: 2024-07-21T14:15:55
+|_Not valid after:  2025-01-20T14:15:55
+| rdp-ntlm-info: 
+|   Target_Name: APPS-SKILLS1
+|   NetBIOS_Domain_Name: APPS-SKILLS1
+|   NetBIOS_Computer_Name: APPS-SKILLS1
+|   DNS_Domain_Name: APPS-SKILLS1
+|   DNS_Computer_Name: APPS-SKILLS1
+|   Product_Version: 10.0.17763
+|_  System_Time: 2024-07-22T14:20:32+00:00
+8000/tcp open   http          Jetty 9.4.42.v20210604
+|_http-server-header: Jetty(9.4.42.v20210604)
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+8009/tcp open   ajp13         Apache Jserv (Protocol v1.3)
+|_ajp-methods: Failed to get a valid response for the OPTION request
+8080/tcp open   http          Apache Tomcat/Coyote JSP engine 1.1
+|_http-favicon: Apache Tomcat
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: Apache-Coyote/1.1
+|_http-title: Apache Tomcat/9.0.0.M1
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2024-07-22T14:20:35
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jul 22 16:20:44 2024 -- 1 IP address (1 host up) scanned in 37.21 seconds

@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Mon Jul 22 16:20:07 2024 as: nmap -Pn --disable-arp-ping -p21,80,135,139,443,445,3389,8000,8009,8080 -sC -sV -oA scan 10.129.3.80
+Host: 10.129.3.80 (10.129.3.80)	Status: Up
+Host: 10.129.3.80 (10.129.3.80)	Ports: 21/open/tcp//ftp//Microsoft ftpd/, 80/open/tcp//http//Microsoft IIS httpd 10.0/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 443/closed/tcp//https///, 445/open/tcp//microsoft-ds?///, 3389/open/tcp//ms-wbt-server//Microsoft Terminal Services/, 8000/open/tcp//http//Jetty 9.4.42.v20210604/, 8009/open/tcp//ajp13//Apache Jserv (Protocol v1.3)/, 8080/open/tcp//http//Apache Tomcat|Coyote JSP engine 1.1/
+# Nmap done at Mon Jul 22 16:20:44 2024 -- 1 IP address (1 host up) scanned in 37.21 seconds

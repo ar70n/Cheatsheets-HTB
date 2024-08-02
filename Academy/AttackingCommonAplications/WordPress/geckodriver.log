@@ -1,0 +1,154 @@
+1720870105120	geckodriver	INFO	Listening on 127.0.0.1:52845
+1720870105149	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "42179" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilewNw1SH"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870105393	Marionette	INFO	Marionette enabled
+1720870105444	Marionette	INFO	Listening on port 42089
+Read port: 42089
+WebDriver BiDi listening on ws://127.0.0.1:42179
+1720870105492	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:42179/devtools/browser/cbcbd11b-f433-4f95-9907-69f7523a24a3
+1720870106340	geckodriver	INFO	Listening on 127.0.0.1:51201
+1720870106372	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "49453" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileIL2TgP"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870106567	Marionette	INFO	Marionette enabled
+1720870106629	Marionette	INFO	Listening on port 42203
+WebDriver BiDi listening on ws://127.0.0.1:49453
+Read port: 42203
+1720870106823	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:49453/devtools/browser/bfe9654b-19e7-4a17-8373-d2861d9c7fcb
+1720870107705	geckodriver	INFO	Listening on 127.0.0.1:55367
+1720870107768	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "34997" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileeBNOoK"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870108189	Marionette	INFO	Marionette enabled
+1720870108252	Marionette	INFO	Listening on port 38449
+WebDriver BiDi listening on ws://127.0.0.1:34997
+Read port: 38449
+1720870108422	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:34997/devtools/browser/4e5b0e2a-0d25-4010-958d-0630bc90265f
+1720870109274	geckodriver	INFO	Listening on 127.0.0.1:54059
+1720870109305	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "35251" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileS7bBAW"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870109553	Marionette	INFO	Marionette enabled
+1720870109633	Marionette	INFO	Listening on port 38477
+WebDriver BiDi listening on ws://127.0.0.1:35251
+Read port: 38477
+1720870109809	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:35251/devtools/browser/538e8477-fb27-456a-8ef9-0a50f2f9b7b9
+1720870110676	geckodriver	INFO	Listening on 127.0.0.1:56301
+1720870110717	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "46343" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCQoihX"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870111072	Marionette	INFO	Marionette enabled
+1720870111152	Marionette	INFO	Listening on port 34607
+WebDriver BiDi listening on ws://127.0.0.1:46343
+Read port: 34607
+1720870111350	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:46343/devtools/browser/18188c28-c8eb-491e-8548-43425645e1df
+1720870112340	geckodriver	INFO	Listening on 127.0.0.1:53127
+1720870112382	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "45263" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileVZVgHd"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870112806	Marionette	INFO	Marionette enabled
+1720870112902	Marionette	INFO	Listening on port 42847
+WebDriver BiDi listening on ws://127.0.0.1:45263
+Read port: 42847
+1720870113159	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1720870113218	Marionette	INFO	Stopped listening on port 42089
+1720870113429	Marionette	INFO	Stopped listening on port 34607
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+1720870113860	Marionette	INFO	Stopped listening on port 38477
+DevTools listening on ws://127.0.0.1:45263/devtools/browser/e1ab476d-c4f7-453c-a690-c5d634347008
+1720870114588	Marionette	INFO	Stopped listening on port 42847
+1720870114605	geckodriver	INFO	Listening on 127.0.0.1:59585
+1720870114642	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "39207" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileQrLDAb"
+*** You are running in headless mode.
+1720870114688	Marionette	INFO	Stopped listening on port 42203
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870114951	Marionette	INFO	Marionette enabled
+1720870115038	Marionette	INFO	Listening on port 43121
+Read port: 43121
+WebDriver BiDi listening on ws://127.0.0.1:39207
+1720870115156	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1720870115376	geckodriver	INFO	Listening on 127.0.0.1:51453
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+1720870115906	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "59517" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile6Nfnhs"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+DevTools listening on ws://127.0.0.1:39207/devtools/browser/dab4ab60-8fd6-46d2-a1f4-793a27bdf59f
+1720870116182	geckodriver	INFO	Listening on 127.0.0.1:42323
+1720870116182	Marionette	INFO	Stopped listening on port 43121
+1720870116216	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "58493" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCLorQM"
+1720870116234	Marionette	INFO	Marionette enabled
+*** You are running in headless mode.
+1720870116319	Marionette	INFO	Listening on port 33623
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+WebDriver BiDi listening on ws://127.0.0.1:59517
+Read port: 33623
+1720870116569	Marionette	INFO	Marionette enabled
+1720870116585	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1720870116663	Marionette	INFO	Listening on port 35079
+WebDriver BiDi listening on ws://127.0.0.1:58493
+Read port: 35079
+1720870116883	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59517/devtools/browser/d38ec62e-604b-4f31-8f3d-f94e9fcb19fd
+DevTools listening on ws://127.0.0.1:58493/devtools/browser/562db7dd-0683-49d5-a7fc-4a596997a309
+1720870118126	Marionette	INFO	Stopped listening on port 35079
+1720870118907	Marionette	INFO	Stopped listening on port 38449
+1720870119474	geckodriver	INFO	Listening on 127.0.0.1:48183
+1720870120001	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "46979" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilemXgVAf"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870120210	Marionette	INFO	Marionette enabled
+1720870120264	Marionette	INFO	Listening on port 38309
+WebDriver BiDi listening on ws://127.0.0.1:46979
+Read port: 38309
+1720870120478	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1720870120569	Marionette	INFO	Stopped listening on port 33623
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:46979/devtools/browser/f440953a-bf05-4ee8-a195-a2b299056ee4
+1720870128292	Marionette	INFO	Stopped listening on port 38309
+1720870128806	geckodriver	INFO	Listening on 127.0.0.1:51953
+1720870129339	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... ss" "--remote-debugging-port" "49585" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileaU40FY"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1720870129527	Marionette	INFO	Marionette enabled
+1720870129575	Marionette	INFO	Listening on port 38489
+WebDriver BiDi listening on ws://127.0.0.1:49585
+Read port: 38489
+1720870129720	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:49585/devtools/browser/708ff194-2905-41dd-9545-45d69d4d924d
+1720870130515	Marionette	INFO	Stopped listening on port 38489

@@ -1,0 +1,40 @@
+# Nmap 7.94SVN scan initiated Tue Jul 23 12:32:08 2024 as: nmap -Pn --disable-arp-ping -p 22,25,80,389,443,8180 -sC -sV -oA scan 10.129.201.90
+Nmap scan report for gitlab.inlanefreight.local (10.129.201.90)
+Host is up (0.66s latency).
+
+PORT     STATE SERVICE  VERSION
+22/tcp   open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 3f:4c:8f:10:f1:ae:be:cd:31:24:7c:a1:4e:ab:84:6d (RSA)
+|   256 7b:30:37:67:50:b9:ad:91:c0:8f:f7:02:78:3b:7c:02 (ECDSA)
+|_  256 88:9e:0e:07:fe:ca:d0:5c:60:ab:cf:10:99:cd:6c:a7 (ED25519)
+25/tcp   open  smtp     Postfix smtpd
+| ssl-cert: Subject: commonName=ubuntu20
+| Subject Alternative Name: DNS:ubuntu20
+| Not valid before: 2021-08-16T17:31:37
+|_Not valid after:  2031-08-14T17:31:37
+|_ssl-date: TLS randomness does not represent time
+|_smtp-commands: skills2, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, SMTPUTF8, CHUNKING
+80/tcp   open  http     Apache httpd 2.4.41 ((Ubuntu))
+|_http-title: Did not follow redirect to http://gitlab.inlanefreight.local:8180/
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+389/tcp  open  ldap     OpenLDAP 2.2.X - 2.3.X
+443/tcp  open  ssl/http Apache httpd 2.4.41 ((Ubuntu))
+| tls-alpn: 
+|_  http/1.1
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=10.129.201.90/organizationName=Nagios Enterprises/stateOrProvinceName=Minnesota/countryName=US
+| Not valid before: 2021-09-02T01:49:48
+|_Not valid after:  2031-08-31T01:49:48
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title:  Shipter\xE2\x80\x93Transport and Logistics HTML5 Template 
+8180/tcp open  http     nginx
+|_http-title: GitLab is not responding (502)
+| http-robots.txt: 54 disallowed entries (15 shown)
+| / /autocomplete/users /autocomplete/projects /search 
+| /admin /profile /dashboard /users /help /s/ /-/profile /-/ide/ 
+|_/*/new /*/edit /*/raw
+Service Info: Host:  skills2; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jul 23 12:32:56 2024 -- 1 IP address (1 host up) scanned in 47.84 seconds

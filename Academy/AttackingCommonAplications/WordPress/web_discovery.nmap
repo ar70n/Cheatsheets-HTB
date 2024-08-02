@@ -1,0 +1,72 @@
+# Nmap 7.94SVN scan initiated Sat Jul 13 13:26:59 2024 as: nmap -Pn --disable-arp-ping -iL scope_list --open -oA web_discovery
+Nmap scan report for app.inlanefreight.local (10.129.96.154)
+Host is up (0.10s latency).
+Not shown: 826 closed tcp ports (conn-refused), 172 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap scan report for dev.inlanefreight.local (10.129.96.154)
+Host is up (0.11s latency).
+rDNS record for 10.129.96.154: app.inlanefreight.local
+Not shown: 913 closed tcp ports (conn-refused), 85 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap scan report for drupal-dev.inlanefreight.local (10.129.96.154)
+Host is up (0.11s latency).
+rDNS record for 10.129.96.154: app.inlanefreight.local
+Not shown: 904 closed tcp ports (conn-refused), 94 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap scan report for drupal-qa.inlanefreight.local (10.129.96.154)
+Host is up (0.098s latency).
+rDNS record for 10.129.96.154: app.inlanefreight.local
+Not shown: 854 closed tcp ports (conn-refused), 144 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap scan report for drupal-acc.inlanefreight.local (10.129.96.154)
+Host is up (0.10s latency).
+rDNS record for 10.129.96.154: app.inlanefreight.local
+Not shown: 773 closed tcp ports (conn-refused), 225 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap scan report for drupal.inlanefreight.local (10.129.96.154)
+Host is up (0.11s latency).
+rDNS record for 10.129.96.154: app.inlanefreight.local
+Not shown: 907 closed tcp ports (conn-refused), 91 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap scan report for blog.inlanefreight.local (10.129.96.154)
+Host is up (0.11s latency).
+rDNS record for 10.129.96.154: app.inlanefreight.local
+Not shown: 726 closed tcp ports (conn-refused), 272 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap scan report for app.inlanefreight.local (10.129.96.154)
+Host is up (0.12s latency).
+Not shown: 696 closed tcp ports (conn-refused), 302 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+# Nmap done at Sat Jul 13 13:27:12 2024 -- 8 IP addresses (8 hosts up) scanned in 13.47 seconds

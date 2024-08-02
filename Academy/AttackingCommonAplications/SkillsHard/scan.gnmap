@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Wed Jul 24 12:13:45 2024 as: nmap -Pn --disable-arp-ping -sC -sV --open -oA scan 10.129.95.200
+Host: 10.129.95.200 (10.129.95.200)	Status: Up
+Host: 10.129.95.200 (10.129.95.200)	Ports: 53/open/tcp//domain//Simple DNS Plus/, 80/open/tcp//http//Microsoft IIS httpd 10.0/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 389/open/tcp//ldap//Microsoft Windows Active Directory LDAP (Domain: MEGACORP.LOCAL, Site: Default-First-Site-Name)/, 445/open/tcp//microsoft-ds//Windows Server 2016 Standard 14393 microsoft-ds (workgroup: MEGACORP)/, 636/open/tcp//tcpwrapped///, 3269/open/tcp//tcpwrapped///, 3389/open/tcp//ms-wbt-server//Microsoft Terminal Services/
+# Nmap done at Wed Jul 24 12:14:21 2024 -- 1 IP address (1 host up) scanned in 35.47 seconds

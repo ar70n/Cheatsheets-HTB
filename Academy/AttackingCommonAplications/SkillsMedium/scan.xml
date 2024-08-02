@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Tue Jul 23 12:32:08 2024 as: nmap -Pn -&#45;disable-arp-ping -p 22,25,80,389,443,8180 -sC -sV -oA scan 10.129.201.90 -->
+<nmaprun scanner="nmap" args="nmap -Pn -&#45;disable-arp-ping -p 22,25,80,389,443,8180 -sC -sV -oA scan 10.129.201.90" start="1721730728" startstr="Tue Jul 23 12:32:08 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="6" services="22,25,80,389,443,8180"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1721730728" endtime="1721730776"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.129.201.90" addrtype="ipv4"/>
+<hostnames>
+<hostname name="gitlab.inlanefreight.local" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" product="OpenSSH" version="8.2p1 Ubuntu 4ubuntu0.3" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:8.2p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  3072 3f:4c:8f:10:f1:ae:be:cd:31:24:7c:a1:4e:ab:84:6d (RSA)&#xa;  256 7b:30:37:67:50:b9:ad:91:c0:8f:f7:02:78:3b:7c:02 (ECDSA)&#xa;  256 88:9e:0e:07:fe:ca:d0:5c:60:ab:cf:10:99:cd:6c:a7 (ED25519)"><table>
+<elem key="bits">3072</elem>
+<elem key="type">ssh-rsa</elem>
+<elem key="fingerprint">3f4c8f10f1aebecd31247ca14eab846d</elem>
+<elem key="key">AAAAB3NzaC1yc2EAAAADAQABAAABgQDa9RJRoAShv6FzLx23WYUh5z5vpaC1W0jTGGJuVfOVmOiwXu7d+eLRcf51dFwqe2J4OZ7z70w6Lrbm3RyKjNSZmY0ekPqbXyP0P6KqYn4eFdJkYp74zPUEvC/Y5U9gYmvCpoQ8gvqgAImYwhBXAlAmGDptcfRWRJ3KaRG/bbmfg0vsWqwYvDVfxEcCfbO1m7v6a9EiWELRTynHS26+oJbjY7tX5X05XMvj6L53JMWodHVsFf/vD4/qP2Ic0lafSBXuyKOcN5Tnx0DpExUwqj7GPLaM/ljG5LjF8y2yqZ85GeNQsgnsSxIL6dHiWkbUP4RXogUVI/prXLDU8307Wn/LWJQl3hxjJmunJfC5qw4a/JPLd9ydFSwadjYhztQoYIsSp41mr/wEVns8owxcKzBju74T9FptZ4I4UAzZLIWg1RJzpnJ7wpnFSUXFbvOa6V+nzeMesjYvKK1vx+UuNtrUuXPJm3BoYKjRJd2msog1KX4CguQNGZMS6LegiRIGde0=</elem>
+</table>
+<table>
+<elem key="bits">256</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+<elem key="fingerprint">7b30376750b9ad91c08ff702783b7c02</elem>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNAdY+PFLa0XBlXCp3lL+mrrQKkU6bxWjDVEsljltzBYtugbDuER3AyIq1igFdgQPn+uKh5RtNQvPvX1Al8pA0Y=</elem>
+</table>
+<table>
+<elem key="bits">256</elem>
+<elem key="type">ssh-ed25519</elem>
+<elem key="fingerprint">889e0e07fecad05c60abcf1099cd6ca7</elem>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIGKKM5saOYH/Fq3lWY1P4fchdWaH60Ib5/VQk6A00nAP</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="25"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="smtp" product="Postfix smtpd" hostname=" skills2" method="probed" conf="10"><cpe>cpe:/a:postfix:postfix</cpe></service><script id="ssl-cert" output="Subject: commonName=ubuntu20&#xa;Subject Alternative Name: DNS:ubuntu20&#xa;Not valid before: 2021-08-16T17:31:37&#xa;Not valid after:  2031-08-14T17:31:37"><table key="subject">
+<elem key="commonName">ubuntu20</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">ubuntu20</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C1EBCF464580BAEB3F3A55CC508BBB7630EDAE8172402A08861B0C0D6C3D29BB375BA27167C7AE7D49FBD5352612A31A128E436E9582B82C95CDC0A199769C5FF64ED3B628CE2B55CB3237B22F698E34693F456714B50A5B4C9FEB35551FF70E22D480EAA4300E7FA58B486DBB9325CA68F751F674758653E0734BEDBD5278F5215302B1998008E4B6F20522A01EC25F2803967DA14E73C0C31A95D21792E13393E8E72FD10F0D40E815C75007F5C8A0FF3EEB6A983C965481775B6EDCE72A0EA0796CDA0F55BED2DCA0A202F783B89741B7E33066727F2CD77D8CD72BD4AE33B129455431CDFF0AFA61A8EEB2BA252BF628522FCA84294C23CEAC1C3200C8B5</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:FALSE</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:ubuntu20</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2021-08-16T17:31:37</elem>
+<elem key="notAfter">2031-08-14T17:31:37</elem>
+</table>
+<elem key="md5">4fccfd96df735cad4767c8392c06c95f</elem>
+<elem key="sha1">e97373dba61c9c76416831c84441cd9af5a9e520</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIC1jCCAb6gAwIBAgIUOzKzVTh7Ov3OLAeLajRFyPq5s2MwDQYJKoZIhvcNAQEL&#xa;BQAwEzERMA8GA1UEAwwIdWJ1bnR1MjAwHhcNMjEwODE2MTczMTM3WhcNMzEwODE0&#xa;MTczMTM3WjATMREwDwYDVQQDDAh1YnVudHUyMDCCASIwDQYJKoZIhvcNAQEBBQAD&#xa;ggEPADCCAQoCggEBAMHrz0ZFgLrrPzpVzFCLu3Yw7a6BckAqCIYbDA1sPSm7N1ui&#xa;cWfHrn1J+9U1JhKjGhKOQ26Vgrgslc3AoZl2nF/2TtO2KM4rVcsyN7IvaY40aT9F&#xa;ZxS1CltMn+s1VR/3DiLUgOqkMA5/pYtIbbuTJcpo91H2dHWGU+BzS+29Unj1IVMC&#xa;sZmACOS28gUioB7CXygDln2hTnPAwxqV0heS4TOT6Ocv0Q8NQOgVx1AH9cig/z7r&#xa;apg8llSBd1tu3OcqDqB5bNoPVb7S3KCiAveDuJdBt+MwZnJ/LNd9jNcr1K4zsSlF&#xa;VDHN/wr6YajusrolK/YoUi/KhClMI86sHDIAyLUCAwEAAaMiMCAwCQYDVR0TBAIw&#xa;ADATBgNVHREEDDAKggh1YnVudHUyMDANBgkqhkiG9w0BAQsFAAOCAQEAwP6BAIS8&#xa;4Ss8LezqCUvlT+XcegaDtZeo0Pir1F2kxzhJGv00Esnlmttz1EygadMGAet+xYbI&#xa;luiEoFY7TtQnZweU3qFGdZ0MydeYXA2dHNC5Il7/4/7ivpd5fKVwHHExv6etiBzf&#xa;vpX7QCzK/+bmUFXA6ppI4eASWO5NOmbWhjmy43y7ZUv5lix/pMtLVdGYVAnxSy6W&#xa;ZD72UPzBBHsqJzM9v715FzYKlWCqmPGcZKIsldhapnBwKgnTNRU+NXuVUBZqLTgo&#xa;HbT9kU8Bv/hewy9DoyYIriiuf7owUQdHm7hsUtBekDklZcqi7ZzZI+FNhCsPh4vB&#xa;9mvViNAx5ho64A==&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="smtp-commands" output="skills2, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, SMTPUTF8, CHUNKING"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Apache httpd" version="2.4.41" extrainfo="(Ubuntu)" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.41</cpe></service><script id="http-title" output="Did not follow redirect to http://gitlab.inlanefreight.local:8180/"><elem key="redirect_url">http://gitlab.inlanefreight.local:8180/</elem>
+</script><script id="http-server-header" output="Apache/2.4.41 (Ubuntu)"><elem>Apache/2.4.41 (Ubuntu)</elem>
+</script></port>
+<port protocol="tcp" portid="389"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ldap" product="OpenLDAP" version="2.2.X - 2.3.X" method="probed" conf="10"><cpe>cpe:/a:openldap:openldap</cpe></service></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Apache httpd" version="2.4.41" extrainfo="(Ubuntu)" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.41</cpe></service><script id="tls-alpn" output="&#xa;  http/1.1"><elem>http/1.1</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="ssl-cert" output="Subject: commonName=10.129.201.90/organizationName=Nagios Enterprises/stateOrProvinceName=Minnesota/countryName=US&#xa;Not valid before: 2021-09-02T01:49:48&#xa;Not valid after:  2031-08-31T01:49:48"><table key="subject">
+<elem key="commonName">10.129.201.90</elem>
+<elem key="countryName">US</elem>
+<elem key="localityName">St. Paul</elem>
+<elem key="organizationName">Nagios Enterprises</elem>
+<elem key="organizationalUnitName">Development</elem>
+<elem key="stateOrProvinceName">Minnesota</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">10.129.201.90</elem>
+<elem key="countryName">US</elem>
+<elem key="localityName">St. Paul</elem>
+<elem key="organizationName">Nagios Enterprises</elem>
+<elem key="organizationalUnitName">Development</elem>
+<elem key="stateOrProvinceName">Minnesota</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">E78125606D7112F101B09810D3A5BEBC57EC7EB37C4AE400B7004A0CB0749502B69EAB607E4B8A00AE19F2A967FEFF4CE3BCEB932C499C377C46BD96A818013D42041580055782B95F8D8C3CDBD9DF58B3A5F5140BE62012B5C88D65A1FDC7D99198A178375FFDE64E526AE59BAE31416F2931A77AFE5FC6240714DCDD19DBB5585855C97DCEA6D291AC788A963FE05B4C8168C7C119FA0314389A48CC1E2F33C06AC25A507AB588356F4525252A00FCC4F63C894A82F2237CAD0AB960697F9A576883AB86ED6F87BE0B7F6B4E4A5E13B2D1303532EF83146D4A285A559C38EA4526A3AB9F68B1C2691DDF6A64794EA45F0CECF04D35C3C1960E043F25573993</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">6D:E8:50:FB:D4:43:CA:B9:01:CA:9C:7D:20:B4:CF:DC:A4:44:71:05</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">6D:E8:50:FB:D4:43:CA:B9:01:CA:9C:7D:20:B4:CF:DC:A4:44:71:05</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:TRUE</elem>
+<elem key="critical">true</elem>
+</table>
+</table>
+<elem key="sig_algo">sha1WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2021-09-02T01:49:48</elem>
+<elem key="notAfter">2031-08-31T01:49:48</elem>
+</table>
+<elem key="md5">3dcf257bb06c7b900e19159b3fcc336d</elem>
+<elem key="sha1">991d5a6e4293018521c91719425d864161ca5971</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIDzDCCArSgAwIBAgIBADANBgkqhkiG9w0BAQUFADB/MQswCQYDVQQGEwJVUzES&#xa;MBAGA1UECAwJTWlubmVzb3RhMREwDwYDVQQHDAhTdC4gUGF1bDEbMBkGA1UECgwS&#xa;TmFnaW9zIEVudGVycHJpc2VzMRQwEgYDVQQLDAtEZXZlbG9wbWVudDEWMBQGA1UE&#xa;AwwNMTAuMTI5LjIwMS45MDAeFw0yMTA5MDIwMTQ5NDhaFw0zMTA4MzEwMTQ5NDha&#xa;MH8xCzAJBgNVBAYTAlVTMRIwEAYDVQQIDAlNaW5uZXNvdGExETAPBgNVBAcMCFN0&#xa;LiBQYXVsMRswGQYDVQQKDBJOYWdpb3MgRW50ZXJwcmlzZXMxFDASBgNVBAsMC0Rl&#xa;dmVsb3BtZW50MRYwFAYDVQQDDA0xMC4xMjkuMjAxLjkwMIIBIjANBgkqhkiG9w0B&#xa;AQEFAAOCAQ8AMIIBCgKCAQEA54ElYG1xEvEBsJgQ06W+vFfsfrN8SuQAtwBKDLB0&#xa;lQK2nqtgfkuKAK4Z8qln/v9M47zrkyxJnDd8Rr2WqBgBPUIEFYAFV4K5X42MPNvZ&#xa;31izpfUUC+YgErXIjWWh/cfZkZiheDdf/eZOUmrlm64xQW8pMad6/l/GJAcU3N0Z&#xa;27VYWFXJfc6m0pGseIqWP+BbTIFox8EZ+gMUOJpIzB4vM8BqwlpQerWINW9FJSUq&#xa;APzE9jyJSoLyI3ytCrlgaX+aV2iDq4btb4e+C39rTkpeE7LRMDUy74MUbUooWlWc&#xa;OOpFJqOrn2ixwmkd32pkeU6kXwzs8E01w8GWDgQ/JVc5kwIDAQABo1MwUTAdBgNV&#xa;HQ4EFgQUbehQ+9RDyrkBypx9ILTP3KREcQUwHwYDVR0jBBgwFoAUbehQ+9RDyrkB&#xa;ypx9ILTP3KREcQUwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEA&#xa;hNKdOGK4KqiXoB/d0RQu0jMyh2TtaxOmu1Z7Fm+eelk96w29otguVv80qamqY+Ij&#xa;1EPhfXNHgC+r2deyYdgwd6T6QZqIuMV96SPU9SHmX+E8Rk345c1bjG5fLbbCwoNK&#xa;4X+zzuI0CgiqCTC6vSdJv12Drhz4gHJe2wt3fC+aIiTdSjB8NOQMfWW461GZYoES&#xa;LYqohzuHdvzx0XWokCzSYbZMC4jhoGNN7WU1ElnC4rCg0yiOZAb1smkLCvaSg/6g&#xa;nVoRsuvIm0OZBIYDJRtDYnk1DU3tNcTVc8DtnJn8wYdEaZpOcTT0f8TQAYQ/6Vac&#xa;DhUwq6Srir2zKQXBsyzm+g==&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="http-server-header" output="Apache/2.4.41 (Ubuntu)"><elem>Apache/2.4.41 (Ubuntu)</elem>
+</script><script id="http-title" output=" Shipter\xE2\x80\x93Transport and Logistics HTML5 Template "><elem key="title"> Shipter\xE2\x80\x93Transport and Logistics HTML5 Template </elem>
+</script></port>
+<port protocol="tcp" portid="8180"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="nginx" method="probed" conf="10"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service><script id="http-title" output="GitLab is not responding (502)"><elem key="title">GitLab is not responding (502)</elem>
+</script><script id="http-robots.txt" output="54 disallowed entries (15 shown)&#xa;/ /autocomplete/users /autocomplete/projects /search &#xa;/admin /profile /dashboard /users /help /s/ /-/profile /-/ide/ &#xa;/*/new /*/edit /*/raw"/></port>
+</ports>
+<times srtt="658886" rttvar="290214" to="1819742"/>
+</host>
+<runstats><finished time="1721730776" timestr="Tue Jul 23 12:32:56 2024" summary="Nmap done at Tue Jul 23 12:32:56 2024; 1 IP address (1 host up) scanned in 47.84 seconds" elapsed="47.84" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>
