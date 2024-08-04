@@ -1,0 +1,2 @@
+Para la seccion Whitelist Filters el payload que funciona es shell.phar.jpg
+Para la seccion Type Filters el payload es shell.gif.phar Ten en cuenta que tienes que poner lo de GIF8 al principio y ver que el content type esta bien

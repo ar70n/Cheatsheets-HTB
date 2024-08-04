@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Sun Aug  4 17:19:41 2024 as: nmap -Pn -&#45;disable-arp-ping -sC -sV -&#45;open -p21,22,139,445 -oA scan 10.10.10.3 -->
+<nmaprun scanner="nmap" args="nmap -Pn -&#45;disable-arp-ping -sC -sV -&#45;open -p21,22,139,445 -oA scan 10.10.10.3" start="1722784781" startstr="Sun Aug  4 17:19:41 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="4" services="21-22,139,445"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1722784782" endtime="1722784835"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.10.10.3" addrtype="ipv4"/>
+<hostnames>
+<hostname name="10.10.10.3" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ftp" product="vsftpd" version="2.3.4" ostype="Unix" method="probed" conf="10"><cpe>cpe:/a:vsftpd:vsftpd:2.3.4</cpe></service><script id="ftp-anon" output="Anonymous FTP login allowed (FTP code 230)"/><script id="ftp-syst" output="&#xa;  STAT: &#xa;FTP server status:&#xa;     Connected to 10.10.16.51&#xa;     Logged in as ftp&#xa;     TYPE: ASCII&#xa;     No session bandwidth limit&#xa;     Session timeout in seconds is 300&#xa;     Control connection is plain text&#xa;     Data connections will be plain text&#xa;     vsFTPd 2.3.4 - secure, fast, stable&#xa;End of status"><elem key="STAT">&#xa;FTP server status:&#xa;     Connected to 10.10.16.51&#xa;     Logged in as ftp&#xa;     TYPE: ASCII&#xa;     No session bandwidth limit&#xa;     Session timeout in seconds is 300&#xa;     Control connection is plain text&#xa;     Data connections will be plain text&#xa;     vsFTPd 2.3.4 - secure, fast, stable&#xa;End of status</elem>
+</script></port>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" product="OpenSSH" version="4.7p1 Debian 8ubuntu1" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:4.7p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  1024 60:0f:cf:e1:c0:5f:6a:74:d6:90:24:fa:c4:d5:6c:cd (DSA)&#xa;  2048 56:56:24:0f:21:1d:de:a7:2b:ae:61:b1:24:3d:e8:f3 (RSA)"><table>
+<elem key="key">AAAAB3NzaC1kc3MAAACBALz4hsc8a2Srq4nlW960qV8xwBG0JC+jI7fWxm5METIJH4tKr/xUTwsTYEYnaZLzcOiy21D3ZvOwYb6AA3765zdgCd2Tgand7F0YD5UtXG7b7fbz99chReivL0SIWEG/E96Ai+pqYMP2WD5KaOJwSIXSUajnU5oWmY5x85sBw+XDAAAAFQDFkMpmdFQTF+oRqaoSNVU7Z+hjSwAAAIBCQxNKzi1TyP+QJIFa3M0oLqCVWI0We/ARtXrzpBOJ/dt0hTJXCeYisKqcdwdtyIn8OUCOyrIjqNuA2QW217oQ6wXpbFh+5AQm8Hl3b6C6o8lX3Ptw+Y4dp0lzfWHwZ/jzHwtuaDQaok7u1f971lEazeJLqfiWrAzoklqSWyDQJAAAAIA1lAD3xWYkeIeHv/R3P9i+XaoI7imFkMuYXCDTq843YU6Td+0mWpllCqAWUV/CQamGgQLtYy5S0ueoks01MoKdOMMhKVwqdr08nvCBdNKjIEd3gH6oBk/YRnjzxlEAYBsvCmM4a0jmhz0oNiRWlc/F+bkUeFKrBx/D2fdfZmhrGg==</elem>
+<elem key="fingerprint">600fcfe1c05f6a74d69024fac4d56ccd</elem>
+<elem key="type">ssh-dss</elem>
+<elem key="bits">1024</elem>
+</table>
+<table>
+<elem key="key">AAAAB3NzaC1yc2EAAAABIwAAAQEAstqnuFMBOZvO3WTEjP4TUdjgWkIVNdTq6kboEDjteOfc65TlI7sRvQBwqAhQjeeyyIk8T55gMDkOD0akSlSXvLDcmcdYfxeIF0ZSuT+nkRhij7XSSA/Oc5QSk3sJ/SInfb78e3anbRHpmkJcVgETJ5WhKObUNf1AKZW++4Xlc63M4KI5cjvMMIPEVOyR3AKmI78Fo3HJjYucg87JjLeC66I7+dlEYX6zT8i1XYwa/L1vZ3qSJISGVu8kRPikMv/cNSvki4j+qDYyZ2E5497W87+Ed46/8P42LNGoOV8OcX/ro6pAcbEPUdUEfkJrqi2YXbhvwIJ0gFMb6wfe5cnQew==</elem>
+<elem key="fingerprint">5656240f211ddea72bae61b1243de8f3</elem>
+<elem key="type">ssh-rsa</elem>
+<elem key="bits">2048</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="netbios-ssn" product="Samba smbd" version="3.X - 4.X" extrainfo="workgroup: WORKGROUP" method="probed" conf="10"><cpe>cpe:/a:samba:samba</cpe></service></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="netbios-ssn" product="Samba smbd" version="3.0.20-Debian" extrainfo="workgroup: WORKGROUP" method="probed" conf="10"><cpe>cpe:/a:samba:samba</cpe></service></port>
+</ports>
+<hostscript><script id="smb-security-mode" output="&#xa;  account_used: guest&#xa;  authentication_level: user&#xa;  challenge_response: supported&#xa;  message_signing: disabled (dangerous, but default)"><elem key="account_used">guest</elem>
+<elem key="authentication_level">user</elem>
+<elem key="challenge_response">supported</elem>
+<elem key="message_signing">disabled</elem>
+</script><script id="clock-skew" output="mean: 2h00m25s, deviation: 2h49m44s, median: 23s"><elem key="mean">7225</elem>
+<elem key="count">2</elem>
+<elem key="median">23</elem>
+<elem key="stddev">10184</elem>
+</script><script id="smb-os-discovery" output="&#xa;  OS: Unix (Samba 3.0.20-Debian)&#xa;  Computer name: lame&#xa;  NetBIOS computer name: &#xa;  Domain name: hackthebox.gr&#xa;  FQDN: lame.hackthebox.gr&#xa;  System time: 2024-08-04T11:20:21-04:00&#xa;"><elem key="os">Unix</elem>
+<elem key="lanmanager">Samba 3.0.20-Debian</elem>
+<elem key="server"></elem>
+<elem key="date">2024-08-04T11:20:21-04:00</elem>
+<elem key="fqdn">lame.hackthebox.gr</elem>
+<elem key="domain_dns">hackthebox.gr</elem>
+<elem key="workgroup">WORKGROUP\x00</elem>
+</script><script id="smb2-time" output="Protocol negotiation failed (SMB2)"/></hostscript><times srtt="132130" rttvar="122667" to="622798"/>
+</host>
+<runstats><finished time="1722784835" timestr="Sun Aug  4 17:20:35 2024" summary="Nmap done at Sun Aug  4 17:20:35 2024; 1 IP address (1 host up) scanned in 53.92 seconds" elapsed="53.92" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Sun Aug  4 17:19:41 2024 as: nmap -Pn --disable-arp-ping -sC -sV --open -p21,22,139,445 -oA scan 10.10.10.3
+Host: 10.10.10.3 (10.10.10.3)	Status: Up
+Host: 10.10.10.3 (10.10.10.3)	Ports: 21/open/tcp//ftp//vsftpd 2.3.4/, 22/open/tcp//ssh//OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)/, 139/open/tcp//netbios-ssn//Samba smbd 3.X - 4.X (workgroup: WORKGROUP)/, 445/open/tcp//netbios-ssn//Samba smbd 3.0.20-Debian (workgroup: WORKGROUP)/
+# Nmap done at Sun Aug  4 17:20:35 2024 -- 1 IP address (1 host up) scanned in 53.92 seconds

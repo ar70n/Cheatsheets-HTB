@@ -1,0 +1,45 @@
+# Nmap 7.94SVN scan initiated Sun Aug  4 17:19:41 2024 as: nmap -Pn --disable-arp-ping -sC -sV --open -p21,22,139,445 -oA scan 10.10.10.3
+Nmap scan report for 10.10.10.3 (10.10.10.3)
+Host is up (0.13s latency).
+
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 2.3.4
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 10.10.16.51
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      vsFTPd 2.3.4 - secure, fast, stable
+|_End of status
+22/tcp  open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 60:0f:cf:e1:c0:5f:6a:74:d6:90:24:fa:c4:d5:6c:cd (DSA)
+|_  2048 56:56:24:0f:21:1d:de:a7:2b:ae:61:b1:24:3d:e8:f3 (RSA)
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 3.0.20-Debian (workgroup: WORKGROUP)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_clock-skew: mean: 2h00m25s, deviation: 2h49m44s, median: 23s
+| smb-os-discovery: 
+|   OS: Unix (Samba 3.0.20-Debian)
+|   Computer name: lame
+|   NetBIOS computer name: 
+|   Domain name: hackthebox.gr
+|   FQDN: lame.hackthebox.gr
+|_  System time: 2024-08-04T11:20:21-04:00
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Aug  4 17:20:35 2024 -- 1 IP address (1 host up) scanned in 53.92 seconds
