@@ -1,0 +1,29 @@
+Solo encontramos los puertos 22 y 80 abiertos por lo que hay que tirar de la pagina web en la cual no encontramos nada interesante al principio ni formularios para loguearse ni nada que nos permita meter inout nuestro ni nada. No encontramos direcotrios oculros de interes con ffuf ni nada.
+
+Con el siguiente comando enumeramos los vhost de la maquina y encontramos uno onteresante "lms"
+
+$ ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u http://permx.htb -H "Host: FUZZ.permx.htb" -ic -mc 200
+
+
+En el vhost encontramos un login page. La web esta hecha con chamilo e investigando  parece que hay un CVE bastante reciente asi que vamos a probarlo: https://starlabs.sg/advisories/23/23-3368/
+
+No funcionó, mientras buscaba mas exploit me puse a listar todos los directorios y a probar login bruteforce con hydra. Estuve probando varias vulnerabilidades de chamilo como CVE-2023-3368, CVE-2023-3533... pero muchos de estas vulnerabilidades dependian de PPT2PNG la cual estaba desactivada en el servidor como se ve en /main/webservices/additional_webservices.php
+
+Este exploit si que me funciono: https://github.com/m3m0o/chamilo-lms-unauthenticated-big-upload-rce-poc
+
+Me gusto mas este que es a mano: https://starlabs.sg/advisories/23/23-4220/
+
+Obtenemos una webshell, con lo que podemos obtener una reverse shell mas interactiva e inspeccionar los archivos de la aplicacion web, en configration.php econtramos credenciales para una base de datos en la que encontramos dos hashes pero que no nos van a llevar a ningun lado.
+
+Enumerando los usuarios encontramos el usuario mtz asi que probamos a usar la contraseña que hemos encontrado para tener una conexion SSH y efectivamente funciona.
+Ahora para escalar privilegios vemos que tenemos sudo permission en un script the bash que utiliza setfacl que sirve para gestionar permisos y tal. 
+
+Como tenemos permisio root sobre este scrpit nos podemos dar permiso de lectura y escritura sobre archivos que esten en nuestro directorio por lo que vamos a crear un enlace simbolico a un archivo que nos interese como por ejemplo el archivo sudoers para asi poder darnos permiso de ejecucion sudo sobre todos los comandos por lo que haciendo sudo su nos convertiremos en root.
+
+
+
+
+
+Referencias: https://medium.com/@cesarguerrerodominguez/resolviendo-la-maquina-permx-htb-writeup-en-espa%C3%B1ol-f2d1b348d7f8
+
+

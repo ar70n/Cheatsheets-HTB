@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Mon Aug  5 12:19:46 2024 as: nmap -Pn --disable-arp-ping -p22,80 -sC -sV -oA scan 10.10.11.23
+Host: 10.10.11.23 (permx.htb)	Status: Up
+Host: 10.10.11.23 (permx.htb)	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.52/
+# Nmap done at Mon Aug  5 12:19:56 2024 -- 1 IP address (1 host up) scanned in 9.92 seconds
