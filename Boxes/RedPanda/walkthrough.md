@@ -1,6 +1,6 @@
 # Walkthrough para la Máquina "RedPanda" en Hack The Box
 
-Este es un paso a paso detallado de cómo comprometí la máquina RedPanda en Hack The Box. Agradecimientos especiales a [gatogamer1155](https://gatogamer1155.github.io/hackthebox/redpanda/) por proporcionar una solución que me guió en mi proceso.
+Este es un paso a paso detallado de cómo comprometí la máquina RedPanda en Hack The Box. Agradecimientos especiales a [gatogamer1155](https://gatogamer1155.github.io/hackthebox/redpanda/) por proporcionar una solución que me guió en mi proceso. Solucion oficial: https://0xdf.gitlab.io/2022/11/26/htb-redpanda.html
 
 ## Escaneo Inicial
 
