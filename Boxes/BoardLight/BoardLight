@@ -1,0 +1,6 @@
+Lo primero que hacemos es hacer un escaneo general de la maquina mientras investigamos un poco la pagina web la cual no tiene nada interesante. Probamos a fuzear los direcotrios de la web y nada asi que probamos a fuzzear los virtual host donde encontramos un match.
+
+Al inspeccionar esta nueva pagina vemos que nos pide unas credenciales y la verdad que nada mas probar admin:admin veo que entro a un dashboard page por lo que parece que esas credenciales son correctas. Buscando en internet encuentro un exploit que permite RCE con un usuario: https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253/blob/main/exploit.py
+
+Con esto obtenemos una shell, revisando los archivos de la web encontramos en conf.php unas credenciales las cuales nos sirven para obtener el usuario larissa. 
+Ahora para la escalada de privilegios uso linpeas.sh el cual nos dice que en interesting files que hay unos binarios con unknown SUID. Esto tiene pinta de que se puede usar para hacer cosas como sudo. Buscando en internet encontramos un exploit para el binario enlightenment consiguiendo asi el usuario root.
