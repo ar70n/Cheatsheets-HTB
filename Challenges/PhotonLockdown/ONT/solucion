@@ -1,0 +1,10 @@
+Si hacemis file sobre rootfs vemos que se trata de un archivo Squashfs que es un tipo de compresion para sistemas de archivos y tal si no me equivoco. 
+Podemos decomprimirlo con 
+$sudo unsquashfs rootfs 
+
+De hay indagamos un poquito buscando credenciales y tal y como no encontramos nada buscamos la flag a lo bruto con el siguiente comando
+
+grep -rnw "HTB" . 2>/dev/null
+./etc/config_default.xml:244:<Value Name="SUSER_PASSWORD" Value="HTB{N0w_Y0u_C4n_L0g1n}"/>
+
+Este comando busca la cadena HTB en todos los archivos del directorio actual.
