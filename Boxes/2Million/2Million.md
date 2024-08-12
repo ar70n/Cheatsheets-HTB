@@ -184,11 +184,9 @@ Con esta información vamos a probar a ver que hacen los **enpoints** de interé
 
 Procedemos a cambiar el valor de `is_admin` a 1.
 
-![invalid_content](/img/invalid_content.png)  
-
-![email](/img/email.png)  
-
-![admin](/img/admin.png)  
+![invalid_content](img/invalid_content.png)  
+![email](img/email.png)  
+![admin](img/admin.png)  
 
 Ahora tenemos acceso al enpoint `/api/v1/admin/vpn/generate`, el cual al hacer un **POST request** nos devuelve un certificado de VPN (un archivo **.ovpn**). 
 
