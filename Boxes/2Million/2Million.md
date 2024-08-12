@@ -123,7 +123,7 @@ function makeInviteCode()
 En este codigo hay definidas dos funciones las cuales hacen un **POST request** a una API para verificar y para pedir instrucciones sobre como generar un codigo de invitación respectivamente. Con esta información podemos intentar obtener las instrucciones para generar un código de invitación.
 
 Vamos a utilizar **BurpSuite** para mandar un **POST request** para obtener las intrucciones.
-![burp](/img/request.png)
+![burp](img/request.png)
 
 Nos da una cadena de texto encriptada y el método de encriptación **ROT13** por lo que con una herrmienta online cualquiera podemos desencriptar el mensaje.
 
