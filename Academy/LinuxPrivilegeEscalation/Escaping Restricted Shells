@@ -1,0 +1,7 @@
+El ejercicio de la seccion nos pide leer los contenidos de un archivo flag.txt en una maquina linux con una shell restrictiva en la que no podemos usar comandos como ls, id, whoami, cat...
+Los comandos que si podemos usar son pwd, echo y algunos mas que o están restringidos o no sirven de nada. No se pueden cambiar las variables de entorno importantes como PATH. Invesitgando como podemos usar echo para resolver el ejercicio vemos que en internet explican que con el comando "echo *" podemos listar los contenidos del directorio revelando que el archivo flag.txt se encuentra en nuestro direcotrio. Ahora vemos que con el comando "echo "$(<flag.txt)"" podemos leer el contenido del fichero resolviendo el ejercicio. 
+
+
+
+Buena info:
+https://0xffsec.com/handbook/shells/restricted-shells/

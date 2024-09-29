@@ -1,0 +1,4 @@
+Listamos las "capabilities" con el comando:
+find /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -type f -exec getcap {} \;
+
+La única interesante es la de vim.basic con la cual podemos ejecutar el comando /usr/bin/vim.basic /root/flag.txt lo que nos muestra directamente la flag. 

