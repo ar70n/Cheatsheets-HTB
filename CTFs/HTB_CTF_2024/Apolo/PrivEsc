@@ -1,0 +1,4 @@
+sudo: /etc/sudoers is owned by uid 1000, should be 0
+sudo: no valid sudoers sources found, quitting
+sudo: unable to initialize policy plugin
+root:x:0:0:root:/root:/bin/bash

